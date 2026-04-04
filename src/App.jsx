@@ -349,7 +349,7 @@ export default function App() {
 
   // ── Shared styles ─────────────────────────────────────────────────────────
   const card = {background:"white",border:"1px solid #E5E5E5",borderRadius:16,padding:"14px 16px",marginBottom:8};
-  const pill = (bg,col,bor) => ({display:"inline-flex",alignItems:"center",gap:4,background:bg,color:col,border:`1px solid ${bor}`,borderRadius:20,padding:"3px 10px",fontSize:11,fontWeight:700});
+  const pill = (bg,col,bor) => ({display:"inline-flex",alignItems:"center",gap:4,background:bg,color:col,border:`1px solid ${bor}`,borderRadius:20,padding:"3px 10px",fontSize:14,fontWeight:700});
 
   return (
     <div style={{minHeight:"100vh",background:"#FAF7F2",fontFamily:"'Segoe UI','SF Pro Display',system-ui,sans-serif",color:"#1a1a1a",paddingBottom:20}}>
@@ -360,46 +360,46 @@ export default function App() {
         <div style={{position:"relative",zIndex:1}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:14}}>
             <div>
-              <h1 style={{fontSize:21,fontWeight:800,margin:0,letterSpacing:"-0.5px"}}>Pippa, Abi, Lily & Lucy</h1>
-              <p style={{fontSize:12,opacity:0.6,margin:"3px 0 0"}}>SE Asia & Australia · Apr–Aug 2026</p>
+              <h1 style={{fontSize:28,fontWeight:800,margin:0,letterSpacing:"-0.5px"}}>Pippa, Abi, Lily & Lucy</h1>
+              <p style={{fontSize:16,opacity:0.6,margin:"3px 0 0"}}>SE Asia & Australia · Apr–Aug 2026</p>
             </div>
-            <div style={{background:before?"rgba(255,255,255,0.15)":after?"rgba(16,185,129,0.3)":"rgba(239,68,68,0.25)",padding:"4px 12px",borderRadius:20,fontSize:10,fontWeight:700,letterSpacing:"0.5px",border:"1px solid rgba(255,255,255,0.15)"}}>
+            <div style={{background:before?"rgba(255,255,255,0.15)":after?"rgba(16,185,129,0.3)":"rgba(239,68,68,0.25)",padding:"4px 12px",borderRadius:20,fontSize:13,fontWeight:700,letterSpacing:"0.5px",border:"1px solid rgba(255,255,255,0.15)"}}>
               {before?"DEPARTING SOON":after?"TRIP COMPLETE ✓":"● LIVE"}
             </div>
           </div>
 
           {cur && !before && !after ? (
             <div style={{background:"rgba(255,255,255,0.1)",borderRadius:16,padding:"14px 16px",border:"1px solid rgba(255,255,255,0.1)",display:"flex",gap:14,alignItems:"center"}}>
-              <div style={{fontSize:30,lineHeight:1}}>{cur.icon}</div>
+              <div style={{fontSize:36,lineHeight:1}}>{cur.icon}</div>
               <div style={{flex:1}}>
-                <div style={{fontSize:10,textTransform:"uppercase",letterSpacing:"1px",opacity:0.6,fontWeight:700}}>Currently at</div>
-                <div style={{fontSize:17,fontWeight:700}}>{cur.loc}</div>
-                <div style={{fontSize:11,opacity:0.7,marginTop:2}}>{cur.country} · Day {tripDay} of {td}</div>
+                <div style={{fontSize:13,textTransform:"uppercase",letterSpacing:"1px",opacity:0.6,fontWeight:700}}>Currently at</div>
+                <div style={{fontSize:22,fontWeight:700}}>{cur.loc}</div>
+                <div style={{fontSize:14,opacity:0.7,marginTop:2}}>{cur.country} · Day {tripDay} of {td}</div>
               </div>
               <div style={{textAlign:"right"}}>
                 <div style={{display:"flex",alignItems:"center",gap:4,justifyContent:"flex-end"}}>
                   <div style={{width:7,height:7,borderRadius:4,background:SIG[cur.signal].c}} />
-                  <span style={{fontSize:10,opacity:0.8}}>{SIG[cur.signal].l}</span>
+                  <span style={{fontSize:13,opacity:0.8}}>{SIG[cur.signal].l}</span>
                 </div>
-                <div style={{fontSize:11,opacity:0.5,marginTop:3}}>{cur.nights}n · {fD(cur.dates[0])}–{fD(cur.dates[1])}</div>
+                <div style={{fontSize:14,opacity:0.5,marginTop:3}}>{cur.nights}n · {fD(cur.dates[0])}–{fD(cur.dates[1])}</div>
               </div>
             </div>
           ) : before ? (
             <div style={{background:"rgba(255,255,255,0.1)",borderRadius:16,padding:"16px",textAlign:"center"}}>
-              <div style={{fontSize:28}}>✈️</div>
-              <div style={{fontSize:14,fontWeight:600,marginTop:6}}>Departing in {dB(eff,ts)} days</div>
-              <div style={{fontSize:11,opacity:0.6}}>Gatwick South Terminal · Norse Z0791 · 05 Apr at 16:00</div>
+              <div style={{fontSize:34}}>✈️</div>
+              <div style={{fontSize:18,fontWeight:600,marginTop:6}}>Departing in {dB(eff,ts)} days</div>
+              <div style={{fontSize:14,opacity:0.6}}>Gatwick South Terminal · Norse Z0791 · 05 Apr at 16:00</div>
             </div>
           ) : (
             <div style={{background:"rgba(16,185,129,0.15)",borderRadius:16,padding:"16px",textAlign:"center"}}>
-              <div style={{fontSize:28}}>🏠</div>
-              <div style={{fontSize:14,fontWeight:600,marginTop:6}}>Journey Complete</div>
-              <div style={{fontSize:11,opacity:0.6}}>{td} days · 8 countries · Lifetime of memories</div>
+              <div style={{fontSize:34}}>🏠</div>
+              <div style={{fontSize:18,fontWeight:600,marginTop:6}}>Journey Complete</div>
+              <div style={{fontSize:14,opacity:0.6}}>{td} days · 8 countries · Lifetime of memories</div>
             </div>
           )}
 
           <div style={{marginTop:14}}>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:9,opacity:0.45,marginBottom:3}}><span>Gatwick</span><span>Sydney</span></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:12,opacity:0.45,marginBottom:3}}><span>Gatwick</span><span>Sydney</span></div>
             <div style={{height:4,background:"rgba(255,255,255,0.12)",borderRadius:2,overflow:"hidden"}}>
               <div style={{height:"100%",width:`${prog}%`,background:"linear-gradient(90deg,#E85D3A,#D4A843,#2D9B83,#F97316,#10B981)",borderRadius:2,transition:"width 0.5s"}} />
             </div>
@@ -410,14 +410,14 @@ export default function App() {
       {/* ── CONTROLS ───────────────────────────────────────────────────────── */}
       <div style={{padding:"12px 16px 0"}}>
         <div style={{display:"flex",gap:6,flexWrap:"wrap",alignItems:"center",marginBottom:10}}>
-          <label style={{display:"flex",alignItems:"center",gap:6,background:demo?"#FEF3C7":"white",border:`1px solid ${demo?"#F59E0B":"#E5E5E5"}`,borderRadius:10,padding:"6px 12px",fontSize:12,fontWeight:600,cursor:"pointer"}}>
+          <label style={{display:"flex",alignItems:"center",gap:6,background:demo?"#FEF3C7":"white",border:`1px solid ${demo?"#F59E0B":"#E5E5E5"}`,borderRadius:10,padding:"6px 12px",fontSize:16,fontWeight:600,cursor:"pointer"}}>
             <input type="checkbox" checked={demo} onChange={e=>setDemo(e.target.checked)} style={{width:14,height:14}} />
             Time Travel
           </label>
-          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min="2026-04-01" max="2026-08-15" style={{border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 8px",fontSize:12}} />}
+          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min="2026-04-01" max="2026-08-15" style={{border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 8px",fontSize:16}} />}
           <div style={{flex:1,minWidth:140,position:"relative"}}>
-            <span style={{position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",fontSize:14,opacity:0.4}}>🔍</span>
-            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search stops, countries..." style={{width:"100%",border:"1px solid #E5E5E5",borderRadius:10,padding:"6px 10px 6px 30px",fontSize:12,background:"white",boxSizing:"border-box"}} />
+            <span style={{position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",fontSize:18,opacity:0.4}}>🔍</span>
+            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search stops, countries..." style={{width:"100%",border:"1px solid #E5E5E5",borderRadius:10,padding:"6px 10px 6px 30px",fontSize:16,background:"white",boxSizing:"border-box"}} />
           </div>
         </div>
 
@@ -425,8 +425,8 @@ export default function App() {
         <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:4}}>
           {cProg.map(c=>(
             <div key={c.name} style={{background:c.act?`${c.c}12`:"white",border:`1.5px solid ${c.act?c.c:"#E5E5E5"}`,borderRadius:10,padding:"5px 10px",minWidth:"fit-content",display:"flex",alignItems:"center",gap:4}}>
-              <span style={{fontSize:13}}>{c.flag}</span>
-              <span style={{fontSize:10,fontWeight:700,color:c.act?c.c:"#6B7280"}}>{c.done}/{c.total}</span>
+              <span style={{fontSize:17}}>{c.flag}</span>
+              <span style={{fontSize:13,fontWeight:700,color:c.act?c.c:"#6B7280"}}>{c.done}/{c.total}</span>
             </div>
           ))}
         </div>
@@ -435,7 +435,7 @@ export default function App() {
       {/* ── TABS ───────────────────────────────────────────────────────────── */}
       <div style={{padding:"10px 16px 0",display:"flex",gap:6}}>
         {[["timeline","📋 Timeline"],["legs","🚀 Legs"],["map","🗺️ Route"],["stats","📊 Stats"]].map(([v,l])=>(
-          <button key={v} onClick={()=>setTab(v)} style={{flex:1,padding:"7px 0",borderRadius:10,fontSize:11,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
+          <button key={v} onClick={()=>setTab(v)} style={{flex:1,padding:"7px 0",borderRadius:10,fontSize:14,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
         ))}
       </div>
 
@@ -455,7 +455,7 @@ export default function App() {
                 {showH && s.country!=="Transit" && (
                   <div style={{display:"flex",alignItems:"center",gap:8,margin:"18px 0 10px"}}>
                     <div style={{height:2,flex:1,background:`linear-gradient(90deg,${col},transparent)`}} />
-                    <span style={{fontSize:12,fontWeight:800,color:col,letterSpacing:"0.5px"}}>{COUNTRIES.find(c=>c.name===s.country)?.flag} {s.country}</span>
+                    <span style={{fontSize:16,fontWeight:800,color:col,letterSpacing:"0.5px"}}>{COUNTRIES.find(c=>c.name===s.country)?.flag} {s.country}</span>
                     <div style={{height:2,flex:1,background:`linear-gradient(270deg,${col},transparent)`}} />
                   </div>
                 )}
@@ -465,60 +465,60 @@ export default function App() {
                   borderRadius:16,padding:"12px 14px",marginBottom:8,cursor:"pointer",
                   opacity:isPast?0.5:1,position:"relative",transition:"all 0.2s"
                 }}>
-                  {isAct && <div style={{position:"absolute",top:-1,right:14,background:col,color:"white",fontSize:9,fontWeight:800,padding:"2px 10px 3px",borderRadius:"0 0 8px 8px",letterSpacing:"1px"}}>NOW</div>}
+                  {isAct && <div style={{position:"absolute",top:-1,right:14,background:col,color:"white",fontSize:12,fontWeight:800,padding:"2px 10px 3px",borderRadius:"0 0 8px 8px",letterSpacing:"1px"}}>NOW</div>}
 
                   <div style={{display:"flex",alignItems:"center",gap:12}}>
-                    <div style={{fontSize:22,width:40,height:40,display:"flex",alignItems:"center",justifyContent:"center",borderRadius:12,background:isAct?`${col}15`:isPast?"#F3F4F6":"#FAFAFA"}}>
+                    <div style={{fontSize:28,width:40,height:40,display:"flex",alignItems:"center",justifyContent:"center",borderRadius:12,background:isAct?`${col}15`:isPast?"#F3F4F6":"#FAFAFA"}}>
                       {isPast?"✓":s.icon}
                     </div>
                     <div style={{flex:1,minWidth:0}}>
-                      <div style={{fontSize:14,fontWeight:700,lineHeight:1.2}}>{s.loc}</div>
-                      <div style={{fontSize:11,color:"#888",marginTop:2,display:"flex",flexWrap:"wrap",gap:6,alignItems:"center"}}>
+                      <div style={{fontSize:18,fontWeight:700,lineHeight:1.2}}>{s.loc}</div>
+                      <div style={{fontSize:14,color:"#888",marginTop:2,display:"flex",flexWrap:"wrap",gap:6,alignItems:"center"}}>
                         <span>{fD(s.dates[0])} – {fD(s.dates[1])}</span>
                         <span>·</span>
                         <span>{s.nights>0?`${s.nights}n`:"Transit"}</span>
                         <span style={{display:"inline-flex",alignItems:"center",gap:3}}>
                           <span style={{width:6,height:6,borderRadius:3,background:SIG[s.signal].c,display:"inline-block"}} />
-                          <span style={{fontSize:10}}>{SIG[s.signal].l}</span>
+                          <span style={{fontSize:13}}>{SIG[s.signal].l}</span>
                         </span>
                       </div>
                     </div>
-                    <span style={{fontSize:16,transform:isExp?"rotate(90deg)":"none",transition:"transform 0.2s",color:"#aaa"}}>›</span>
+                    <span style={{fontSize:20,transform:isExp?"rotate(90deg)":"none",transition:"transform 0.2s",color:"#aaa"}}>›</span>
                   </div>
 
                   {isExp && (
                     <div style={{marginTop:14,borderTop:"1px solid #E8E8E8",paddingTop:14}} onClick={e=>e.stopPropagation()}>
                       {/* Insight */}
                       <div style={{background:"#FFF8F0",borderRadius:12,padding:"12px 14px",marginBottom:8,borderLeft:`3px solid ${col}`}}>
-                        <div style={{fontSize:10,fontWeight:700,color:col,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.5px"}}>What they'll experience</div>
-                        <p style={{fontSize:13,lineHeight:1.6,margin:0,color:"#333"}}>{s.insight}</p>
+                        <div style={{fontSize:13,fontWeight:700,color:col,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.5px"}}>What they'll experience</div>
+                        <p style={{fontSize:17,lineHeight:1.6,margin:0,color:"#333"}}>{s.insight}</p>
                       </div>
 
                       {/* Parent tip */}
                       <div style={{background:"#F0F7FF",borderRadius:12,padding:"12px 14px",marginBottom:8,borderLeft:"3px solid #3B82F6"}}>
-                        <div style={{fontSize:10,fontWeight:700,color:"#3B82F6",marginBottom:4,textTransform:"uppercase",letterSpacing:"0.5px"}}>Parent's note</div>
-                        <p style={{fontSize:13,lineHeight:1.6,margin:0,color:"#333"}}>{s.parentTip}</p>
+                        <div style={{fontSize:13,fontWeight:700,color:"#3B82F6",marginBottom:4,textTransform:"uppercase",letterSpacing:"0.5px"}}>Parent's note</div>
+                        <p style={{fontSize:17,lineHeight:1.6,margin:0,color:"#333"}}>{s.parentTip}</p>
                       </div>
 
                       {/* Transport leg */}
                       <div style={{background:"#F5F3FF",borderRadius:12,padding:"12px 14px",marginBottom:8,borderLeft:"3px solid #8B5CF6"}}>
-                        <div style={{fontSize:10,fontWeight:700,color:"#8B5CF6",marginBottom:6,textTransform:"uppercase",letterSpacing:"0.5px"}}>Getting here</div>
+                        <div style={{fontSize:13,fontWeight:700,color:"#8B5CF6",marginBottom:6,textTransform:"uppercase",letterSpacing:"0.5px"}}>Getting here</div>
                         <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
                           <span style={pill("#F5F3FF","#6D28D9","#DDD6FE")}>
                             <span>{LEG_ICONS[s.leg.mode]}</span> {LEG_LABELS[s.leg.mode]}
                           </span>
                         </div>
-                        <p style={{fontSize:12,fontWeight:600,margin:"0 0 2px",color:"#333"}}>{s.leg.from} → {s.leg.to}</p>
-                        <p style={{fontSize:12,lineHeight:1.5,margin:0,color:"#555"}}>{s.leg.detail}</p>
+                        <p style={{fontSize:16,fontWeight:600,margin:"0 0 2px",color:"#333"}}>{s.leg.from} → {s.leg.to}</p>
+                        <p style={{fontSize:16,lineHeight:1.5,margin:0,color:"#555"}}>{s.leg.detail}</p>
                       </div>
 
                       {/* Confirm flag */}
                       {s.confirm && (
                         <div style={{background:"#FEF3C7",borderRadius:12,padding:"10px 14px",border:"1px solid #FCD34D",display:"flex",alignItems:"flex-start",gap:8}}>
-                          <span style={{fontSize:14}}>⚠️</span>
+                          <span style={{fontSize:18}}>⚠️</span>
                           <div>
-                            <div style={{fontSize:10,fontWeight:700,color:"#92400E",textTransform:"uppercase",letterSpacing:"0.5px"}}>Needs confirmation</div>
-                            <p style={{fontSize:12,lineHeight:1.5,margin:"4px 0 0",color:"#78350F"}}>{s.confirm}</p>
+                            <div style={{fontSize:13,fontWeight:700,color:"#92400E",textTransform:"uppercase",letterSpacing:"0.5px"}}>Needs confirmation</div>
+                            <p style={{fontSize:16,lineHeight:1.5,margin:"4px 0 0",color:"#78350F"}}>{s.confirm}</p>
                           </div>
                         </div>
                       )}
@@ -526,8 +526,8 @@ export default function App() {
                       {/* Signal warning */}
                       {s.signal==="poor" && (
                         <div style={{background:"#FEF2F2",borderRadius:12,padding:"10px 14px",marginTop:8,display:"flex",alignItems:"center",gap:8}}>
-                          <span style={{fontSize:14}}>📵</span>
-                          <span style={{fontSize:12,color:"#991B1B",fontWeight:600}}>Expect limited contact here — don't worry!</span>
+                          <span style={{fontSize:18}}>📵</span>
+                          <span style={{fontSize:16,color:"#991B1B",fontWeight:600}}>Expect limited contact here — don't worry!</span>
                         </div>
                       )}
                     </div>
@@ -543,19 +543,19 @@ export default function App() {
       {tab==="legs" && (
         <div style={{padding:"14px 16px"}}>
           <div style={{...card,background:"#F5F3FF",border:"1px solid #DDD6FE",marginBottom:16}}>
-            <div style={{fontSize:13,fontWeight:700,color:"#6D28D9",marginBottom:4}}>Every move in plain English</div>
-            <p style={{fontSize:12,lineHeight:1.6,margin:0,color:"#4C1D95"}}>From easy taxi hops to faff-heavy multi-mode transfers — here's how each connection works so you know what kind of travel day they're having.</p>
+            <div style={{fontSize:17,fontWeight:700,color:"#6D28D9",marginBottom:4}}>Every move in plain English</div>
+            <p style={{fontSize:16,lineHeight:1.6,margin:0,color:"#4C1D95"}}>From easy taxi hops to faff-heavy multi-mode transfers — here's how each connection works so you know what kind of travel day they're having.</p>
           </div>
           {filtered.map(s=>(
             <div key={s.id} style={{...card,display:"flex",gap:12,alignItems:"flex-start"}}>
-              <div style={{fontSize:20,marginTop:2}}>{LEG_ICONS[s.leg.mode]}</div>
+              <div style={{fontSize:26,marginTop:2}}>{LEG_ICONS[s.leg.mode]}</div>
               <div style={{flex:1}}>
                 <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",gap:6,marginBottom:4}}>
-                  <span style={{fontSize:13,fontWeight:700}}>{s.leg.from} → {s.leg.to}</span>
+                  <span style={{fontSize:17,fontWeight:700}}>{s.leg.from} → {s.leg.to}</span>
                   <span style={pill("#F5F3FF","#6D28D9","#DDD6FE")}>{LEG_LABELS[s.leg.mode]}</span>
                 </div>
-                <p style={{fontSize:12,lineHeight:1.5,margin:"0 0 4px",color:"#555"}}>{s.leg.detail}</p>
-                <div style={{fontSize:11,color:"#888"}}>Arriving into <strong>{s.loc}</strong> · {fD(s.dates[0])}</div>
+                <p style={{fontSize:16,lineHeight:1.5,margin:"0 0 4px",color:"#555"}}>{s.leg.detail}</p>
+                <div style={{fontSize:14,color:"#888"}}>Arriving into <strong>{s.loc}</strong> · {fD(s.dates[0])}</div>
               </div>
             </div>
           ))}
@@ -566,8 +566,8 @@ export default function App() {
       {tab==="map" && (
         <div style={{padding:"14px 16px"}}>
           <div style={{...card,padding:16}}>
-            <div style={{fontSize:14,fontWeight:700,marginBottom:2}}>Route Overview</div>
-            <p style={{fontSize:11,color:"#888",margin:"0 0 12px"}}>{STOPS.length} stops across 8 countries · Tap dots to jump to timeline</p>
+            <div style={{fontSize:18,fontWeight:700,marginBottom:2}}>Route Overview</div>
+            <p style={{fontSize:14,color:"#888",margin:"0 0 12px"}}>{STOPS.length} stops across 8 countries · Tap dots to jump to timeline</p>
             <svg viewBox="0 0 400 340" style={{width:"100%"}}>
               <rect x="0" y="0" width="400" height="340" fill="#E8F4F8" rx="12" />
               <ellipse cx="200" cy="200" rx="180" ry="160" fill="#D4E8F0" opacity="0.5" />
@@ -606,7 +606,7 @@ export default function App() {
 
           {/* Itinerary analysis — stolen from ChatGPT */}
           <div style={{marginTop:12}}>
-            <div style={{fontSize:14,fontWeight:700,marginBottom:10,paddingLeft:4}}>📖 Reading of the itinerary</div>
+            <div style={{fontSize:18,fontWeight:700,marginBottom:10,paddingLeft:4}}>📖 Reading of the itinerary</div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
               {[
                 {bg:"#ECFDF5",bc:"#10B981",tc:"#065F46",h:"Strength",t:"Mixes classic highlights with smart pauses — Luang Prabang, Lombok, Canggu. That lowers burnout risk."},
@@ -615,8 +615,8 @@ export default function App() {
                 {bg:"#FEF2F2",bc:"#EF4444",tc:"#7F1D1D",h:"Most anxious",t:"Ha Giang motorbikes, party islands, Nusa Penida cliffs and Rinjani — the quartet requiring the calmest judgment."},
               ].map((x,i)=>(
                 <div key={i} style={{background:x.bg,borderRadius:12,padding:"10px 12px",borderLeft:`3px solid ${x.bc}`}}>
-                  <div style={{fontSize:10,fontWeight:700,color:x.bc,textTransform:"uppercase",letterSpacing:"0.5px",marginBottom:4}}>{x.h}</div>
-                  <p style={{fontSize:12,lineHeight:1.5,margin:0,color:x.tc}}>{x.t}</p>
+                  <div style={{fontSize:13,fontWeight:700,color:x.bc,textTransform:"uppercase",letterSpacing:"0.5px",marginBottom:4}}>{x.h}</div>
+                  <p style={{fontSize:16,lineHeight:1.5,margin:0,color:x.tc}}>{x.t}</p>
                 </div>
               ))}
             </div>
@@ -635,39 +635,39 @@ export default function App() {
               {l:"Longest Stay",v:"8 nights",i:"🏖️",sub:"Canggu/Seminyak"},{l:"Low Signal",v:lows.length+" stops",i:"📵"},
             ].map((x,i)=>(
               <div key={i} style={{...card,textAlign:"center",padding:"14px 12px"}}>
-                <div style={{fontSize:20,marginBottom:4}}>{x.i}</div>
-                <div style={{fontSize:20,fontWeight:800,color:"#1B2838"}}>{x.v}</div>
-                <div style={{fontSize:10,color:"#888",fontWeight:600}}>{x.l}</div>
-                {x.sub && <div style={{fontSize:10,color:"#aaa"}}>{x.sub}</div>}
+                <div style={{fontSize:26,marginBottom:4}}>{x.i}</div>
+                <div style={{fontSize:26,fontWeight:800,color:"#1B2838"}}>{x.v}</div>
+                <div style={{fontSize:13,color:"#888",fontWeight:600}}>{x.l}</div>
+                {x.sub && <div style={{fontSize:13,color:"#aaa"}}>{x.sub}</div>}
               </div>
             ))}
           </div>
 
           {/* Country breakdown */}
-          <div style={{fontSize:14,fontWeight:700,marginBottom:10,paddingLeft:4}}>🌏 By Country</div>
+          <div style={{fontSize:18,fontWeight:700,marginBottom:10,paddingLeft:4}}>🌏 By Country</div>
           {cProg.map(c=>(
             <div key={c.name} style={{...card,display:"flex",alignItems:"center",gap:12,border:`1px solid ${c.act?c.c:"#E8E8E8"}`}}>
-              <span style={{fontSize:22}}>{c.flag}</span>
+              <span style={{fontSize:28}}>{c.flag}</span>
               <div style={{flex:1}}>
-                <div style={{fontSize:13,fontWeight:700}}>{c.name}</div>
-                <div style={{fontSize:11,color:"#888"}}>{c.total} stops · {c.n} nights</div>
+                <div style={{fontSize:17,fontWeight:700}}>{c.name}</div>
+                <div style={{fontSize:14,color:"#888"}}>{c.total} stops · {c.n} nights</div>
                 <div style={{height:4,background:"#F3F4F6",borderRadius:2,marginTop:4,overflow:"hidden"}}>
                   <div style={{height:"100%",width:`${(c.done/c.total)*100}%`,background:c.c,borderRadius:2,transition:"width 0.5s"}} />
                 </div>
               </div>
-              <div style={{fontSize:12,fontWeight:700,color:c.c}}>{c.done===c.total?"✓":`${c.done}/${c.total}`}</div>
+              <div style={{fontSize:16,fontWeight:700,color:c.c}}>{c.done===c.total?"✓":`${c.done}/${c.total}`}</div>
             </div>
           ))}
 
           {/* Low signal */}
-          <div style={{fontSize:14,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>📵 Low Signal Stops</div>
-          <p style={{fontSize:12,color:"#666",margin:"0 0 8px 4px"}}>Where silence is a signal issue, not a disaster.</p>
+          <div style={{fontSize:18,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>📵 Low Signal Stops</div>
+          <p style={{fontSize:16,color:"#666",margin:"0 0 8px 4px"}}>Where silence is a signal issue, not a disaster.</p>
           {lows.map(s=>(
             <div key={s.id} style={{background:"#FEF2F2",borderRadius:12,padding:"10px 14px",marginBottom:6,border:"1px solid #FECACA",display:"flex",alignItems:"center",gap:10}}>
-              <span style={{fontSize:16}}>{s.icon}</span>
+              <span style={{fontSize:20}}>{s.icon}</span>
               <div style={{flex:1}}>
-                <div style={{fontSize:12,fontWeight:600}}>{s.loc}</div>
-                <div style={{fontSize:11,color:"#991B1B"}}>{fD(s.dates[0])} – {fD(s.dates[1])}</div>
+                <div style={{fontSize:16,fontWeight:600}}>{s.loc}</div>
+                <div style={{fontSize:14,color:"#991B1B"}}>{fD(s.dates[0])} – {fD(s.dates[1])}</div>
               </div>
               <div style={{width:8,height:8,borderRadius:4,background:"#EF4444"}} />
             </div>
@@ -675,22 +675,22 @@ export default function App() {
 
           {/* Confirm items */}
           {confirms.length>0 && <>
-            <div style={{fontSize:14,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>⚠️ Items to Confirm</div>
+            <div style={{fontSize:18,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>⚠️ Items to Confirm</div>
             {confirms.map(s=>(
               <div key={s.id} style={{background:"#FEF3C7",borderRadius:12,padding:"10px 14px",marginBottom:6,border:"1px solid #FCD34D"}}>
-                <div style={{fontSize:12,fontWeight:700,color:"#92400E"}}>{s.loc}</div>
-                <p style={{fontSize:12,lineHeight:1.5,margin:"4px 0 0",color:"#78350F"}}>{s.confirm}</p>
+                <div style={{fontSize:16,fontWeight:700,color:"#92400E"}}>{s.loc}</div>
+                <p style={{fontSize:16,lineHeight:1.5,margin:"4px 0 0",color:"#78350F"}}>{s.confirm}</p>
               </div>
             ))}
           </>}
 
           {/* Travellers */}
-          <div style={{fontSize:14,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>👩‍👩‍👧‍👧 The Travellers</div>
+          <div style={{fontSize:18,fontWeight:700,margin:"18px 0 10px",paddingLeft:4}}>👩‍👩‍👧‍👧 The Travellers</div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {["Pippa","Abi","Lily","Lucy"].map((n,i)=>(
               <div key={n} style={{...card,textAlign:"center",padding:14}}>
-                <div style={{width:42,height:42,borderRadius:21,margin:"0 auto 8px",background:["#E85D3A","#2D9B83","#D4A843","#8B5CF6"][i],display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontWeight:800,fontSize:17}}>{n[0]}</div>
-                <div style={{fontSize:13,fontWeight:700}}>{n}</div>
+                <div style={{width:42,height:42,borderRadius:21,margin:"0 auto 8px",background:["#E85D3A","#2D9B83","#D4A843","#8B5CF6"][i],display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontWeight:800,fontSize:22}}>{n[0]}</div>
+                <div style={{fontSize:17,fontWeight:700}}>{n}</div>
               </div>
             ))}
           </div>
@@ -699,7 +699,7 @@ export default function App() {
 
       {/* ── FOOTER ─────────────────────────────────────────────────────────── */}
       <div style={{padding:20,textAlign:"center"}}>
-        <p style={{fontSize:10,color:"#aaa",margin:0}}>Built with love for worried parents everywhere 💛</p>
+        <p style={{fontSize:13,color:"#aaa",margin:0}}>Built with love for worried parents everywhere 💛</p>
       </div>
     </div>
   );
