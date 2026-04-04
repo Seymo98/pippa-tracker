@@ -307,12 +307,23 @@ const gc = country => (COUNTRIES.find(x=>country.includes(x.name))||{c:"#6B7280"
 const SIG = {good:{c:"#22C55E",l:"Good signal"},moderate:{c:"#EAB308",l:"Patchy signal"},poor:{c:"#EF4444",l:"Limited / no signal"}};
 
 export default function App() {
-  const [today] = useState(()=>new Date());
+  const [today, setToday] = useState(()=>new Date());
+  useEffect(()=>{
+    const tick = () => setToday(new Date());
+    const now = new Date();
+    const msToMidnight = new Date(now.getFullYear(),now.getMonth(),now.getDate()+1).getTime() - now.getTime();
+    const firstTimeout = setTimeout(()=>{ tick(); const id = setInterval(tick, 86400000); return ()=>clearInterval(id); }, msToMidnight);
+    return ()=>clearTimeout(firstTimeout);
+  },[]);
   const [sel, setSel] = useState(null);
   const [tab, setTab] = useState("timeline");
   const [demo, setDemo] = useState(false);
   const [demoD, setDemoD] = useState("2026-04-10");
   const [search, setSearch] = useState("");
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({x:0,y:0});
+  const [dragging, setDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({x:0,y:0});
   const ref = useRef(null);
 
   const eff = demo ? pD(demoD) : today;
@@ -408,34 +419,34 @@ export default function App() {
       </div>
 
       {/* ── CONTROLS ───────────────────────────────────────────────────────── */}
-      <div style={{padding:"12px 16px 0"}}>
-        <div style={{display:"flex",gap:6,flexWrap:"wrap",alignItems:"center",marginBottom:10}}>
-          <label style={{display:"flex",alignItems:"center",gap:6,background:demo?"#FEF3C7":"white",border:`1px solid ${demo?"#F59E0B":"#E5E5E5"}`,borderRadius:10,padding:"6px 12px",fontSize:16,fontWeight:600,cursor:"pointer"}}>
-            <input type="checkbox" checked={demo} onChange={e=>setDemo(e.target.checked)} style={{width:14,height:14}} />
-            Time Travel
+      <div style={{padding:"14px 16px 0"}}>
+        <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginBottom:12}}>
+          <label style={{display:"flex",alignItems:"center",gap:8,background:demo?"#FEF3C7":"white",border:`1.5px solid ${demo?"#F59E0B":"#E5E5E5"}`,borderRadius:12,padding:"10px 16px",fontSize:16,fontWeight:600,cursor:"pointer"}}>
+            <input type="checkbox" checked={demo} onChange={e=>setDemo(e.target.checked)} style={{width:18,height:18}} />
+            ⏰ Time Travel
           </label>
-          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min="2026-04-01" max="2026-08-15" style={{border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 8px",fontSize:16}} />}
-          <div style={{flex:1,minWidth:140,position:"relative"}}>
-            <span style={{position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",fontSize:18,opacity:0.4}}>🔍</span>
-            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search stops, countries..." style={{width:"100%",border:"1px solid #E5E5E5",borderRadius:10,padding:"6px 10px 6px 30px",fontSize:16,background:"white",boxSizing:"border-box"}} />
+          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min="2026-04-01" max="2026-08-15" style={{border:"1.5px solid #D1D5DB",borderRadius:12,padding:"10px 14px",fontSize:16}} />}
+          <div style={{flex:1,minWidth:160,position:"relative"}}>
+            <span style={{position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",fontSize:20,opacity:0.4}}>🔍</span>
+            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search stops, countries..." style={{width:"100%",border:"1.5px solid #E5E5E5",borderRadius:12,padding:"10px 14px 10px 38px",fontSize:16,background:"white",boxSizing:"border-box"}} />
           </div>
         </div>
 
         {/* Country pills */}
-        <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:4}}>
+        <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:6}}>
           {cProg.map(c=>(
-            <div key={c.name} style={{background:c.act?`${c.c}12`:"white",border:`1.5px solid ${c.act?c.c:"#E5E5E5"}`,borderRadius:10,padding:"5px 10px",minWidth:"fit-content",display:"flex",alignItems:"center",gap:4}}>
-              <span style={{fontSize:17}}>{c.flag}</span>
-              <span style={{fontSize:13,fontWeight:700,color:c.act?c.c:"#6B7280"}}>{c.done}/{c.total}</span>
+            <div key={c.name} style={{background:c.act?`${c.c}12`:"white",border:`1.5px solid ${c.act?c.c:"#E5E5E5"}`,borderRadius:12,padding:"8px 14px",minWidth:"fit-content",display:"flex",alignItems:"center",gap:6}}>
+              <span style={{fontSize:20}}>{c.flag}</span>
+              <span style={{fontSize:15,fontWeight:700,color:c.act?c.c:"#6B7280"}}>{c.done}/{c.total}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── TABS ───────────────────────────────────────────────────────────── */}
-      <div style={{padding:"10px 16px 0",display:"flex",gap:6}}>
+      <div style={{padding:"12px 16px 0",display:"flex",gap:8}}>
         {[["timeline","📋 Timeline"],["legs","🚀 Legs"],["map","🗺️ Route"],["stats","📊 Stats"]].map(([v,l])=>(
-          <button key={v} onClick={()=>setTab(v)} style={{flex:1,padding:"7px 0",borderRadius:10,fontSize:14,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
+          <button key={v} onClick={()=>setTab(v)} style={{flex:1,padding:"12px 0",borderRadius:12,fontSize:16,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1.5px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
         ))}
       </div>
 
@@ -566,57 +577,80 @@ export default function App() {
       {tab==="map" && (
         <div style={{padding:"14px 16px"}}>
           <div style={{...card,padding:16}}>
-            <div style={{fontSize:18,fontWeight:700,marginBottom:2}}>Route Overview</div>
-            <p style={{fontSize:14,color:"#888",margin:"0 0 12px"}}>{STOPS.length} stops across 8 countries · Tap dots to jump to timeline</p>
-            <svg viewBox="0 0 400 340" style={{width:"100%"}}>
-              <rect x="0" y="0" width="400" height="340" fill="#E8F4F8" rx="12" />
-              <ellipse cx="200" cy="200" rx="180" ry="160" fill="#D4E8F0" opacity="0.5" />
-              {STOPS.slice(1).map((s,i)=>{
-                const p=STOPS[i];
-                const x1=((p.lng-95)/60)*360+20, y1=((25-p.lat)/45)*320+10;
-                const x2=((s.lng-95)/60)*360+20, y2=((25-s.lat)/45)*320+10;
-                const done=eff>=pD(s.dates[1]);
-                return <line key={`l${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={done?"#9CA3AF":gc(s.country)} strokeWidth={done?1:1.5} strokeDasharray={done?"none":"4,3"} opacity={0.6} />;
-              })}
-              {STOPS.map((s,i)=>{
-                const x=((s.lng-95)/60)*360+20, y=((25-s.lat)/45)*320+10;
-                const isA=!before&&!after&&eff>=pD(s.dates[0])&&eff<pD(s.dates[1]);
-                const done=eff>=pD(s.dates[1]);
-                const col=gc(s.country);
-                return (
-                  <g key={`d${i}`} onClick={()=>{setSel(s.id);setTab("timeline");}} style={{cursor:"pointer"}}>
-                    {isA && <>
-                      <circle cx={x} cy={y} r={10} fill={col} opacity={0.15}><animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.3;0.05;0.3" dur="2s" repeatCount="indefinite" /></circle>
-                      <circle cx={x} cy={y} r={5} fill={col} stroke="white" strokeWidth={2} />
-                    </>}
-                    {!isA && <circle cx={x} cy={y} r={done?2.5:3.5} fill={done?"#9CA3AF":col} opacity={done?0.4:0.8} />}
-                    {(isA||s.nights>=4) && <text x={x} y={y-8} textAnchor="middle" fontSize="6" fontWeight="600" fill={isA?col:"#666"}>{s.loc.split(",")[0].split("/")[0].split("(")[0].trim().substring(0,12)}</text>}
-                  </g>
-                );
-              })}
-              <text x="90" y="38" fontSize="7" fill="#E85D3A" fontWeight="700" opacity="0.4">THAILAND</text>
-              <text x="55" y="68" fontSize="6" fill="#2D9B83" fontWeight="700" opacity="0.4">LAOS</text>
-              <text x="115" y="52" fontSize="6" fill="#D4A843" fontWeight="700" opacity="0.4">VIETNAM</text>
-              <text x="80" y="155" fontSize="6" fill="#8B5CF6" fontWeight="700" opacity="0.4">CAMBODIA</text>
-              <text x="55" y="225" fontSize="6" fill="#3B82F6" fontWeight="700" opacity="0.4">MALAYSIA</text>
-              <text x="175" y="245" fontSize="6" fill="#F97316" fontWeight="700" opacity="0.4">INDONESIA</text>
-              <text x="310" y="305" fontSize="7" fill="#10B981" fontWeight="700" opacity="0.4">AUSTRALIA</text>
-            </svg>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:8}}>
+              <div>
+                <div style={{fontSize:18,fontWeight:700}}>Route Overview</div>
+                <p style={{fontSize:14,color:"#888",margin:"4px 0 0"}}>{STOPS.length} stops · Pinch or use buttons to zoom · Tap dots to jump</p>
+              </div>
+              <div style={{display:"flex",gap:6}}>
+                <button onClick={()=>{setZoom(z=>Math.min(z*1.5,5));}} style={{width:36,height:36,borderRadius:10,border:"1.5px solid #E5E5E5",background:"white",fontSize:20,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>+</button>
+                <button onClick={()=>{setZoom(z=>Math.max(z/1.5,1));if(zoom<=1.5)setPan({x:0,y:0});}} style={{width:36,height:36,borderRadius:10,border:"1.5px solid #E5E5E5",background:"white",fontSize:20,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>−</button>
+                {zoom>1 && <button onClick={()=>{setZoom(1);setPan({x:0,y:0});}} style={{height:36,borderRadius:10,border:"1.5px solid #E5E5E5",background:"white",fontSize:14,cursor:"pointer",padding:"0 12px",fontWeight:600,color:"#666"}}>Reset</button>}
+              </div>
+            </div>
+            <div style={{overflow:"hidden",borderRadius:12,border:"1px solid #E0E0E0",touchAction:zoom>1?"none":"auto"}}
+              onMouseDown={e=>{if(zoom>1){setDragging(true);setDragStart({x:e.clientX-pan.x,y:e.clientY-pan.y});}}}
+              onMouseMove={e=>{if(dragging){setPan({x:e.clientX-dragStart.x,y:e.clientY-dragStart.y});}}}
+              onMouseUp={()=>setDragging(false)}
+              onMouseLeave={()=>setDragging(false)}
+              onTouchStart={e=>{if(zoom>1&&e.touches.length===1){const t=e.touches[0];setDragging(true);setDragStart({x:t.clientX-pan.x,y:t.clientY-pan.y});}}}
+              onTouchMove={e=>{if(dragging&&e.touches.length===1){e.preventDefault();const t=e.touches[0];setPan({x:t.clientX-dragStart.x,y:t.clientY-dragStart.y});}}}
+              onTouchEnd={()=>setDragging(false)}
+            >
+              <svg viewBox="0 0 400 340" style={{width:"100%",display:"block",cursor:zoom>1?(dragging?"grabbing":"grab"):"default",transform:`scale(${zoom}) translate(${pan.x/zoom}px,${pan.y/zoom}px)`,transformOrigin:"center center",transition:dragging?"none":"transform 0.3s"}}>
+                <rect x="0" y="0" width="400" height="340" fill="#E8F4F8" rx="12" />
+                <ellipse cx="200" cy="200" rx="180" ry="160" fill="#D4E8F0" opacity="0.5" />
+                {STOPS.slice(1).map((s,i)=>{
+                  const p=STOPS[i];
+                  const x1=((p.lng-95)/60)*360+20, y1=((25-p.lat)/45)*320+10;
+                  const x2=((s.lng-95)/60)*360+20, y2=((25-s.lat)/45)*320+10;
+                  const done=eff>=pD(s.dates[1]);
+                  return <line key={`l${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={done?"#9CA3AF":gc(s.country)} strokeWidth={done?1:1.5} strokeDasharray={done?"none":"4,3"} opacity={0.6} />;
+                })}
+                {STOPS.map((s,i)=>{
+                  const x=((s.lng-95)/60)*360+20, y=((25-s.lat)/45)*320+10;
+                  const isA=!before&&!after&&eff>=pD(s.dates[0])&&eff<pD(s.dates[1]);
+                  const done=eff>=pD(s.dates[1]);
+                  const col=gc(s.country);
+                  const showLabel = zoom>=2 || isA || s.nights>=4;
+                  const showAllLabels = zoom>=3;
+                  return (
+                    <g key={`d${i}`} onClick={()=>{setSel(s.id);setTab("timeline");}} style={{cursor:"pointer"}}>
+                      {isA && <>
+                        <circle cx={x} cy={y} r={10/zoom} fill={col} opacity={0.15}><animate attributeName="r" values={`${8/zoom};${14/zoom};${8/zoom}`} dur="2s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.3;0.05;0.3" dur="2s" repeatCount="indefinite" /></circle>
+                        <circle cx={x} cy={y} r={5/zoom} fill={col} stroke="white" strokeWidth={2/zoom} />
+                      </>}
+                      {!isA && <circle cx={x} cy={y} r={done?2.5/zoom:3.5/zoom} fill={done?"#9CA3AF":col} opacity={done?0.4:0.8} />}
+                      {(showAllLabels||showLabel) && <text x={x} y={y-8/zoom} textAnchor="middle" fontSize={6/zoom} fontWeight="600" fill={isA?col:"#666"}>{s.loc.split(",")[0].split("/")[0].split("(")[0].trim().substring(0,14)}</text>}
+                    </g>
+                  );
+                })}
+                <text x="90" y="38" fontSize={7/zoom} fill="#E85D3A" fontWeight="700" opacity="0.4">THAILAND</text>
+                <text x="55" y="68" fontSize={6/zoom} fill="#2D9B83" fontWeight="700" opacity="0.4">LAOS</text>
+                <text x="115" y="52" fontSize={6/zoom} fill="#D4A843" fontWeight="700" opacity="0.4">VIETNAM</text>
+                <text x="80" y="155" fontSize={6/zoom} fill="#8B5CF6" fontWeight="700" opacity="0.4">CAMBODIA</text>
+                <text x="55" y="225" fontSize={6/zoom} fill="#3B82F6" fontWeight="700" opacity="0.4">MALAYSIA</text>
+                <text x="175" y="245" fontSize={6/zoom} fill="#F97316" fontWeight="700" opacity="0.4">INDONESIA</text>
+                <text x="310" y="305" fontSize={7/zoom} fill="#10B981" fontWeight="700" opacity="0.4">AUSTRALIA</text>
+              </svg>
+            </div>
+            {zoom>1 && <p style={{fontSize:13,color:"#888",textAlign:"center",marginTop:8}}>Drag to pan · Zoom: {Math.round(zoom*100)}%</p>}
           </div>
 
-          {/* Itinerary analysis — stolen from ChatGPT */}
-          <div style={{marginTop:12}}>
-            <div style={{fontSize:18,fontWeight:700,marginBottom:10,paddingLeft:4}}>📖 Reading of the itinerary</div>
+          {/* Itinerary analysis */}
+          <div style={{marginTop:14}}>
+            <div style={{fontSize:18,fontWeight:700,marginBottom:6,paddingLeft:4}}>📖 Reading of the itinerary</div>
+            <p style={{fontSize:14,color:"#888",margin:"0 0 10px 4px"}}>Assessment of the plan's structure — not related to map colours above.</p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
               {[
-                {bg:"#ECFDF5",bc:"#10B981",tc:"#065F46",h:"Strength",t:"Mixes classic highlights with smart pauses — Luang Prabang, Lombok, Canggu. That lowers burnout risk."},
-                {bg:"#FEF3C7",bc:"#F59E0B",tc:"#78350F",h:"Pressure point",t:"Northern and central Vietnam run quite fast. Tiredness may show between Ha Giang and Hoi An."},
-                {bg:"#EFF6FF",bc:"#3B82F6",tc:"#1E3A5A",h:"Most reassuring",t:"Longer stays in Lombok (7n) and Canggu (8n) show they're pacing themselves for the second half."},
-                {bg:"#FEF2F2",bc:"#EF4444",tc:"#7F1D1D",h:"Most anxious",t:"Ha Giang motorbikes, party islands, Nusa Penida cliffs and Rinjani — the quartet requiring the calmest judgment."},
+                {bg:"#F8FAFC",bc:"#475569",tc:"#1E293B",icon:"✅",h:"Strength",t:"Mixes classic highlights with smart pauses — Luang Prabang, Lombok, Canggu. That lowers burnout risk."},
+                {bg:"#FFFBEB",bc:"#B45309",tc:"#78350F",icon:"⚡",h:"Pressure point",t:"Northern and central Vietnam run quite fast. Tiredness may show between Ha Giang and Hoi An."},
+                {bg:"#EEF2FF",bc:"#6366F1",tc:"#312E81",icon:"💙",h:"Most reassuring",t:"Longer stays in Lombok (7n) and Canggu (8n) show they're pacing themselves for the second half."},
+                {bg:"#FFF1F2",bc:"#E11D48",tc:"#881337",icon:"😰",h:"Most anxious",t:"Ha Giang motorbikes, party islands, Nusa Penida cliffs and Rinjani — the quartet requiring the calmest judgment."},
               ].map((x,i)=>(
-                <div key={i} style={{background:x.bg,borderRadius:12,padding:"10px 12px",borderLeft:`3px solid ${x.bc}`}}>
-                  <div style={{fontSize:13,fontWeight:700,color:x.bc,textTransform:"uppercase",letterSpacing:"0.5px",marginBottom:4}}>{x.h}</div>
-                  <p style={{fontSize:16,lineHeight:1.5,margin:0,color:x.tc}}>{x.t}</p>
+                <div key={i} style={{background:x.bg,borderRadius:12,padding:"12px 14px",borderLeft:`3px solid ${x.bc}`}}>
+                  <div style={{fontSize:14,fontWeight:700,color:x.bc,marginBottom:6}}>{x.icon} {x.h}</div>
+                  <p style={{fontSize:15,lineHeight:1.5,margin:0,color:x.tc}}>{x.t}</p>
                 </div>
               ))}
             </div>
