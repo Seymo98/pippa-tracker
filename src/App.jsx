@@ -178,122 +178,143 @@ const STOPS = [
     parentTip:"Three nights is ideal for Angkor. It will be extremely hot (35°C+). Insist they drink constantly and wear sunscreen. Temples require covered shoulders and knees. Heat and early starts are the challenge, not safety.",
     leg:{mode:"bus",from:"Phnom Penh",to:"Siem Reap",detail:"Standard Cambodia overland transfer north (~6hrs)."} },
 
-  { id:30, loc:"Bangkok (Transit)", dates:["2026-06-11","2026-06-13"], nights:2, country:"Thailand",
+  { id:30, loc:"Bangkok (Transit)", dates:["2026-06-11","2026-06-14"], nights:3, country:"Thailand",
     tz:7,    lat:13.76,lng:100.50, signal:"good", icon:"✈️",
-    insight:"Back to Bangkok as a transit hub — they'll know the city by now. Two nights to restock, laundry, and enjoy creature comforts before the islands. Chatuchak Weekend Market (15,000+ stalls!) is worth a visit if timing works.",
-    parentTip:"Bangkok will feel like coming home. Good chance to regroup, restock first aid supplies, and sort ferry logistics for the islands. One of the most useful stops in the plan because it creates breathing room.",
+    insight:"Back to Bangkok as a transit hub — they'll know the city by now. Three nights to restock, laundry, and enjoy creature comforts before the updated final leg begins in Laos. Chatuchak Weekend Market (15,000+ stalls!) is worth a visit if timing works.",
+    parentTip:"Bangkok will feel like coming home. Good chance to regroup, restock first aid supplies, and sort the jump back toward Laos before the final section of the trip.",
     leg:{mode:"flight",from:"Siem Reap",to:"Bangkok",detail:"Quick regional flight or organised overland return into Thailand."} },
 
-  { id:31, loc:"Koh Tao", dates:["2026-06-13","2026-06-19"], nights:6, country:"Thailand",
-    tz:7,    lat:10.10,lng:99.84, signal:"moderate", icon:"🤿",
-    insight:"The world's most popular and affordable place to get PADI Open Water scuba certified — about £200 for a 3-4 day course. Tiny island surrounded by crystal-clear waters, coral reefs, whale sharks and sea turtles. Sairee Beach is the main strip. Six nights strongly suggests at least one of them is getting dive-certified.",
-    parentTip:"PADI certification is well regulated and safe. Six nights is right for a course plus fun dives. Ferry from the mainland takes about 2 hours. Decent signal on main beaches.",
-    leg:{mode:"mixed",from:"Bangkok",to:"Koh Tao",detail:"Train or flight south to Chumphon or Surat Thani, then ferry. Start of the island chapter."} },
+  { id:31, loc:"Vang Vieng", dates:["2026-06-14","2026-06-16"], nights:2, country:"Laos",
+    tz:7,    lat:18.92,lng:102.45, signal:"moderate", icon:"🛶",
+    insight:"Once infamous as a party town, Vang Vieng has matured into an adventure hub surrounded by extraordinary karst scenery. Tubing down the Nam Song river is still the signature activity, but now there's also kayaking, rock climbing, zip-lining, and the Blue Lagoons. The landscape is genuinely otherworldly.",
+    parentTip:"Two nights is enough for the classic lagoons and river scenery without lingering too long. Tubing is much safer than it was years ago, but alcohol and water remain the sensible-parent watch-outs.",
+    leg:{mode:"mixed",from:"Bangkok",to:"Vang Vieng",detail:"Final leg starts here on 14 June; likely flight/rail/road via Vientiane or another Laos connection."} },
 
-  { id:32, loc:"Koh Phangan", dates:["2026-06-19","2026-06-22"], nights:3, country:"Thailand",
-    tz:7,    lat:9.73,lng:100.01, signal:"moderate", icon:"🎶",
-    insight:"Famous worldwide for the Full Moon Party on Haad Rin beach — up to 30,000 people dancing on sand until sunrise with fire shows and neon body paint. But the rest of the island is surprisingly peaceful — Bottle Beach, Thong Nai Pan, and the secret viewpoints.",
-    parentTip:"The Full Moon Party is what parents worry about most. Reality: it's a massive beach party with cheap bucket drinks. Main risks are cut feet from glass (wear shoes), drink spiking (watch drinks) and sunburn the next day. Most people have a blast and survive perfectly well.",
-    leg:{mode:"ferry",from:"Koh Tao",to:"Koh Phangan",detail:"Short inter-island ferry hop (~1hr)."} },
+  { id:32, loc:"Luang Prabang", dates:["2026-06-16","2026-06-18"], nights:2, country:"Laos",
+    tz:7,    lat:19.89,lng:102.13, signal:"moderate", icon:"🙏",
+    insight:"A UNESCO World Heritage city at the confluence of the Mekong and Nam Khan rivers. French colonial architecture, saffron-robed monks collecting morning alms at dawn, Kuang Si waterfalls with turquoise pools, and the night market on the main street make it one of Southeast Asia's loveliest small cities.",
+    parentTip:"Extremely safe and walkable. The morning alms ceremony starts early and should be watched respectfully without flash photography. Two nights keeps this as a beautiful, compact stop.",
+    leg:{mode:"train",from:"Vang Vieng",to:"Luang Prabang",detail:"Laos-China railway or road transfer north through the mountains."} },
 
-  { id:33, loc:"Koh Samui", dates:["2026-06-22","2026-06-25"], nights:3, country:"Thailand",
+  { id:33, loc:"Bangkok", dates:["2026-06-18","2026-06-20"], nights:2, country:"Thailand",
+    tz:7,    lat:13.76,lng:100.50, signal:"good", icon:"🎉",
+    insight:"A quick Bangkok reset before the Gulf islands: street food, malls, rooftop views, temples, laundry, and logistics. By now they'll know how to move around the city and it will feel far less overwhelming than the first visit.",
+    parentTip:"Two nights is practical rather than indulgent. This is the admin stop before the overnight train south, so it is a good moment for charging cables, pharmacy bits, cash, laundry and ferry tickets.",
+    leg:{mode:"flight",from:"Luang Prabang",to:"Bangkok",detail:"Regional hop back into Thailand before heading south to the islands."} },
+
+  { id:34, loc:"Overnight train to Koh Samui", dates:["2026-06-20","2026-06-21"], nights:1, country:"Transit",
+    tz:7,    lat:11.45,lng:99.50, signal:"moderate", icon:"🚂",
+    insight:"The planner shows one travel night after Bangkok. This is the classic southbound sleeper-train style move toward Surat Thani, followed by transfer and ferry over to Koh Samui.",
+    parentTip:"A planned overnight travel night can look quiet from home: phones charging badly, intermittent signal, odd arrival times. Tiring, but a normal backpacker route.",
+    leg:{mode:"train",from:"Bangkok",to:"Koh Samui",detail:"Overnight train or equivalent southbound transfer, then onward ferry to the island."} },
+
+  { id:35, loc:"Koh Samui", dates:["2026-06-21","2026-06-24"], nights:3, country:"Thailand",
     tz:7,    lat:9.51,lng:100.01, signal:"good", icon:"🌺",
     insight:"Most developed of the Gulf islands — proper resorts, international restaurants, even a Tesco Lotus. Chaweng Beach is the main strip. Ang Thong Marine Park (42 islands) is a spectacular day trip by speedboat.",
     parentTip:"Koh Samui has an international airport with direct flights. If anything goes wrong, this is one of the easiest places to access medical care or arrange emergency flights.",
-    leg:{mode:"ferry",from:"Koh Phangan",to:"Koh Samui",detail:"Very easy inter-island ferry (~30 mins)."} },
+    leg:{mode:"mixed",from:"Overnight train",to:"Koh Samui",detail:"Arrive from the southbound train/road leg, then ferry across to Samui."} },
 
-  { id:34, loc:"Kuala Lumpur", dates:["2026-06-25","2026-06-27"], nights:2, country:"Malaysia",
+  { id:36, loc:"Koh Phangan", dates:["2026-06-24","2026-06-26"], nights:2, country:"Thailand",
+    tz:7,    lat:9.73,lng:100.01, signal:"moderate", icon:"🎶",
+    insight:"Famous worldwide for the Full Moon Party on Haad Rin beach, but the rest of the island is surprisingly peaceful: Bottle Beach, Thong Nai Pan, waterfalls, viewpoints and yoga retreats tucked away from the party strip.",
+    parentTip:"Two nights suggests a focused island stop rather than a long party base. Main risks are the usual party-island basics: shoes on the beach, watch drinks, and do not get casual with scooters.",
+    leg:{mode:"ferry",from:"Koh Samui",to:"Koh Phangan",detail:"Very easy inter-island ferry, usually around 30-60 minutes."} },
+
+  { id:37, loc:"Koh Tao", dates:["2026-06-26","2026-06-30"], nights:4, country:"Thailand",
+    tz:7,    lat:10.10,lng:99.84, signal:"moderate", icon:"🤿",
+    insight:"The world's most popular and affordable place to get PADI Open Water scuba certified. Tiny island, clear water, coral reefs, whale sharks if they're lucky, and Sairee Beach as the main social strip.",
+    parentTip:"Four nights is enough for a dive course or a few relaxed snorkel/dive days. Diving is well regulated, but ferry days and scooter temptation are the things to keep in mind.",
+    leg:{mode:"ferry",from:"Koh Phangan",to:"Koh Tao",detail:"Short ferry north through the Gulf islands."} },
+
+  { id:38, loc:"Thailand → Penang transit", dates:["2026-06-30","2026-07-01"], nights:1, country:"Transit",
+    tz:8,    lat:6.25,lng:100.60, signal:"moderate", icon:"🔀",
+    insight:"The dates imply one travel night between Koh Tao ending on 30 June and George Town beginning on 1 July. This is the long move from the Thai islands toward Penang.",
+    parentTip:"This is the fiddly travel night in the updated route. Expect ferry timing, airport or bus connections, and slower replies while they cross from Thailand into Malaysia.",
+    leg:{mode:"mixed",from:"Koh Tao",to:"George Town",detail:"Ferry plus onward flight, bus or train connection toward Penang."} },
+
+  { id:39, loc:"George Town", dates:["2026-07-01","2026-07-03"], nights:2, country:"Malaysia",
+    tz:8,    lat:5.41,lng:100.33, signal:"good", icon:"🏮",
+    insight:"Penang's George Town is a UNESCO World Heritage city famous for street art, Chinese shophouses, clan jetties and some of the best food in Asia. Char kway teow, laksa and roti canai are the real itinerary here.",
+    parentTip:"Very walkable, food-focused and safe. Two nights is a neat city break after the Thai islands and before the more modern Malaysia/Singapore stretch.",
+    leg:{mode:"mixed",from:"Koh Tao",to:"George Town",detail:"Long transfer from the islands into Penang; the planner shows George Town starting 1 July."} },
+
+  { id:40, loc:"Kuala Lumpur", dates:["2026-07-03","2026-07-05"], nights:2, country:"Malaysia",
     tz:8,    lat:3.14,lng:101.69, signal:"good", icon:"🏙️",
     insight:"Malaysia's gleaming capital — Petronas Twin Towers (once world's tallest), incredible food courts mixing Malay, Chinese, Indian and Nyonya cuisines, Batu Caves (272 steps to a Hindu temple inside limestone), and the wonderful Jalan Alor food street. Dramatically more modern and organised than Thailand.",
     parentTip:"Will feel like arriving in a different world — air-conditioned malls, spotless metro, very efficient. English widely spoken. Malaysia is majority Muslim — more conservative dress in some areas.",
-    leg:{mode:"flight",from:"Koh Samui",to:"Kuala Lumpur",detail:"Natural flight connection into Malaysia."} },
+    leg:{mode:"train",from:"George Town",to:"Kuala Lumpur",detail:"Penang to Kuala Lumpur is a common road, rail or flight move; the planner shows 334 km."},
+    confirm:"The source planner label is truncated as 'Kuala Lumpur Interna...'; this app treats it as the Kuala Lumpur stop unless the airport stay needs to be shown literally." },
 
-  { id:35, loc:"Singapore", dates:["2026-06-27","2026-06-30"], nights:3, country:"Singapore",
+  { id:41, loc:"Singapore", dates:["2026-07-05","2026-07-06"], nights:1, country:"Singapore",
     tz:8,    lat:1.35,lng:103.82, signal:"good", icon:"🌃",
-    insight:"Ultimate contrast — hyper-modern, immaculate, extraordinarily expensive by SE Asian standards. Gardens by the Bay, Marina Bay Sands, hawker centres (street food with Michelin stars), Little India, Chinatown, and possibly the world's best airport (Changi, with a waterfall inside). A beer costs more here than a day's food in Laos.",
-    parentTip:"Safest country on the itinerary — essentially zero crime. But expensive. Budget shock after months of £5 meals is real. Good place for a medical/dental checkup if needed.",
-    leg:{mode:"bus",from:"Kuala Lumpur",to:"Singapore",detail:"Fast common overland route between two very connected cities (~5-6hrs)."} },
+    insight:"Ultimate contrast — hyper-modern, immaculate, extraordinarily expensive by SE Asian standards. Gardens by the Bay, Marina Bay Sands, hawker centres, Little India, Chinatown, and Changi Airport's famous indoor waterfall if they pass through the terminals.",
+    parentTip:"Safest country on the itinerary, but expensive. With only one night, this is likely a sharp transit city stop before Bali rather than a long Singapore stay.",
+    leg:{mode:"bus",from:"Kuala Lumpur",to:"Singapore",detail:"Fast common overland route between two very connected cities; the planner shows 297 km."},
+    confirm:"The source planner label is truncated as 'Singapore Changi Air...'; this app treats it as the Singapore stop unless it should be pinned specifically to Changi Airport." },
 
-  { id:36, loc:"Gili Trawangan", dates:["2026-06-30","2026-07-04"], nights:4, country:"Indonesia",
+  { id:42, loc:"Seminyak", dates:["2026-07-06","2026-07-09"], nights:3, country:"Indonesia",
+    tz:8,    lat:-8.69,lng:115.17, signal:"good", icon:"🏖️",
+    insight:"Seminyak is Bali's more polished beach base: boutiques, restaurants, sunset bars and long surf beaches. It is a soft landing into Indonesia after the Malaysia/Singapore city section.",
+    parentTip:"Very tourist-friendly with good WiFi, pharmacies and easy transport. Traffic is the nuisance, not remoteness. Three nights is enough to decompress before the Gili boat.",
+    leg:{mode:"flight",from:"Singapore",to:"Bali / Seminyak",detail:"International hop to Bali, then road transfer to the Seminyak coast."} },
+
+  { id:43, loc:"Gili Trawangan", dates:["2026-07-09","2026-07-13"], nights:4, country:"Indonesia",
     tz:8,    lat:-8.35,lng:116.03, signal:"moderate", icon:"🐢",
     insight:"Largest of three tiny Gili Islands off Lombok — no cars, no motorbikes, just horse carts and bicycles on a coral-fringed island walkable in two hours. Famous for underwater sculptures, sea turtles on every snorkel, and legendary sunsets with Bali's Mount Agung on the horizon.",
     parentTip:"Very charming but limited emergency infrastructure — the 'hospital' is a small clinic. Fast boats from Bali take ~2 hours and can be rough in bad weather.",
-    leg:{mode:"mixed",from:"Singapore",to:"Gili Trawangan",detail:"Flight to Bali or Lombok plus fast boat; one of the more fiddly travel days."} },
+    leg:{mode:"ferry",from:"Seminyak / Bali",to:"Gili Trawangan",detail:"Road transfer to the harbour, then fast boat across to the Gilis."} },
 
-  { id:37, loc:"Mount Rinjani", dates:["2026-07-04","2026-07-05"], nights:1, country:"Indonesia",
-    tz:8,    lat:-8.41,lng:116.46, signal:"poor", icon:"🌋",
-    insight:"Indonesia's second-highest volcano (3,726m). The trek to the crater rim takes 2 days — sleeping in tents at altitude where temperatures drop near freezing. The caldera contains a stunning turquoise crater lake with hot springs. Genuinely gruelling — steep scree, early starts and altitude effects.",
-    parentTip:"⚠️ SIGNAL WARNING: No signal on the mountain. Physically the hardest thing on the trip. Ensure they have a reputable guide company. One night suggests a rim trek rather than full summit — sensible. They may not have packed for near-freezing temperatures.",
-    leg:{mode:"trek",from:"Gili T / Lombok",to:"Rinjani",detail:"Boat back to Lombok then guided mountain trek; early starts and cold temperatures."} },
-
-  { id:38, loc:"Lombok", dates:["2026-07-05","2026-07-12"], nights:7, country:"Indonesia",
-    tz:8,    lat:-8.58,lng:116.12, signal:"moderate", icon:"🏖️",
-    insight:"Seven nights — deliberate recovery and decompression week after Rinjani and three months of hard travelling. Lombok is Bali's quieter, less-developed neighbour. Kuta Lombok has pristine beaches and world-class surfing. Traditional Sasak villages are fascinating.",
-    parentTip:"A full week here is one of the smartest choices in the plan. They need and deserve a proper rest. Lombok is more conservative than Bali — modest dress appreciated away from beaches.",
-    leg:{mode:"taxi",from:"Rinjani",to:"Lombok base",detail:"Recovery transfer to a quieter beach or surf base."} },
-
-  { id:39, loc:"Nusa Penida / Lembongan", dates:["2026-07-12","2026-07-16"], nights:4, country:"Indonesia",
-    tz:8,    lat:-8.73,lng:115.54, signal:"moderate", icon:"🏝️",
-    insight:"Nusa Penida is Instagram's favourite island — the T-Rex shaped Kelingking Beach cliff, Angel's Billabong (natural infinity pool on cliff edge), Broken Beach, and manta ray snorkelling. Nusa Lembongan is smaller and more chilled with mangroves and the Devil's Tear blowhole.",
-    parentTip:"⚠️ The roads on Nusa Penida are notoriously bad — steep, unpaved and dangerous on scooters. Many injuries happen here from motorbike accidents on cliff roads. The cliffs are unfenced and Instagram photos at cliff edges are a genuine concern.",
-    leg:{mode:"ferry",from:"Lombok",to:"Nusa islands",detail:"Fast-boat crossings; can be choppy and plans shift with weather."} },
-
-  { id:40, loc:"Ubud, Bali", dates:["2026-07-16","2026-07-20"], nights:4, country:"Indonesia",
+  { id:44, loc:"Ubud", dates:["2026-07-13","2026-07-16"], nights:3, country:"Indonesia",
     tz:8,    lat:-8.51,lng:115.26, signal:"good", icon:"🎨",
     insight:"Bali's spiritual and artistic heart — Tegallalang rice terraces, the Sacred Monkey Forest, traditional dance performances, yoga retreats, and incredible organic restaurants. Campuhan Ridge Walk at sunrise is a gentle path through rolling grasslands. Thriving art scene with galleries and batik workshops.",
-    parentTip:"Inland and cooler than the coast. Very safe, very well set up. The Monkey Forest monkeys WILL steal sunglasses and phones — warn them. Four nights = properly soaking in the culture.",
-    leg:{mode:"ferry",from:"Nusa islands",to:"Bali / Ubud",detail:"Boat back to Bali then inland transfer (~1.5hrs)."} },
+    parentTip:"Inland and cooler than the coast. Very safe, very well set up. The Monkey Forest monkeys will steal sunglasses and phones if given a chance. Three nights gives a proper culture-and-food pause.",
+    leg:{mode:"ferry",from:"Gili Trawangan",to:"Ubud",detail:"Fast boat back to Bali, then inland transfer to Ubud."} },
 
-  { id:41, loc:"Canggu / Seminyak", dates:["2026-07-20","2026-07-28"], nights:8, country:"Indonesia",
-    tz:8,    lat:-8.65,lng:115.14, signal:"good", icon:"🏄",
-    insight:"Canggu is Bali's hippest area — surf breaks, açai bowls, co-working spaces and beach clubs. Seminyak is more upmarket with boutique shopping and cocktail bars. Eight nights = proper beach time, surfing lessons, and the Bali café culture. Tanah Lot sea temple at sunset is nearby.",
-    parentTip:"Eight nights in one place this late says they need a proper rest — and they've earned it. Extremely well set up for Western tourists. Excellent WiFi — expect plenty of communication. Their longest single stay.",
-    leg:{mode:"taxi",from:"Ubud",to:"Canggu / Seminyak",detail:"Short Bali transfer into a social, beach-heavy base."} },
-
-  { id:42, loc:"Uluwatu", dates:["2026-07-28","2026-07-31"], nights:3, country:"Indonesia",
+  { id:45, loc:"Uluwatu Beach", dates:["2026-07-16","2026-07-18"], nights:2, country:"Indonesia",
     tz:8,    lat:-8.83,lng:115.08, signal:"good", icon:"🌅",
     insight:"Dramatic clifftop temple perched 70m above the Indian Ocean with Kecak fire dance at sunset — one of Bali's most magical experiences. Beaches below (Padang Padang, Dreamland, Bingin) reached by steep cliff staircases. Single Fin beach club Sunday sessions are legendary.",
-    parentTip:"Bali finale before Australia. Beautiful but cliff paths are steep and the temple monkeys are aggressive thieves. Three nights of clifftop sunsets is a perfect way to end Indonesia.",
-    leg:{mode:"taxi",from:"Canggu / Seminyak",to:"Uluwatu",detail:"Short road transfer within south Bali."} },
+    parentTip:"Beautiful but cliff paths are steep and the temple monkeys are talented thieves. Two nights keeps it as a scenic south-Bali stop before the final Canggu base.",
+    leg:{mode:"taxi",from:"Ubud",to:"Uluwatu Beach",detail:"Short road transfer from inland Bali to the southern cliffs."} },
 
-  { id:43, loc:"Cairns", dates:["2026-07-31","2026-08-02"], nights:2, country:"Australia",
-    tz:10,    lat:-16.92,lng:145.78, signal:"good", icon:"🐠",
-    insight:"Gateway to the Great Barrier Reef and Daintree Rainforest — the only place on earth where two UNESCO World Heritage sites meet. They'll almost certainly do a reef trip. The Esplanade lagoon (free public pool on the waterfront) is iconic because you can't swim at the beaches due to crocs and box jellyfish.",
-    parentTip:"Welcome to Australia — and Australian prices. Dramatic budget shock after SE Asia. Reef trips are very well regulated. July/August should be fine for ocean swimming (stinger season is Nov-May).",
-    leg:{mode:"flight",from:"Bali",to:"Cairns",detail:"Major international hop into Australia (~6hrs)."} },
-
-  { id:44, loc:"Mission Beach", dates:["2026-08-02","2026-08-03"], nights:1, country:"Australia",
-    tz:10,    lat:-17.87,lng:146.11, signal:"moderate", icon:"🪂",
-    insight:"A tiny tropical town famous for one thing: skydiving onto the beach with the Great Barrier Reef as backdrop. Consistently rated one of the world's most scenic skydive locations. The cassowary habitat (Australia's most dangerous bird) makes it unique.",
-    parentTip:"If 'skydive spot' is in the notes, they're planning to jump. Tandem skydiving is statistically very safe (regulated by Australian aviation authority). Perhaps don't think about it too hard.",
-    leg:{mode:"bus",from:"Cairns",to:"Mission Beach",detail:"Short coastal drive south (~2hrs)."} },
-
-  { id:45, loc:"Whitsunday Islands", dates:["2026-08-03","2026-08-06"], nights:3, country:"Australia",
-    tz:10,    lat:-20.28,lng:148.95, signal:"poor", icon:"⛵",
-    insight:"74 tropical islands surrounded by the Great Barrier Reef. Likely a 2-3 day sailing trip — sleeping on a yacht, snorkelling pristine reefs, and visiting Whitehaven Beach (98.9% pure silica sand, regularly voted world's most beautiful). Hill Inlet lookout is the classic photo.",
-    parentTip:"⚠️ SIGNAL WARNING: No phone signal while sailing. Three nights of limited contact. Sailing trips are well-regulated but check the operator. Whitehaven is genuinely as stunning as the photos.",
-    leg:{mode:"cruise",from:"Mission Beach / Airlie Beach",to:"Whitsundays",detail:"Road south to Airlie Beach then multi-day sailing trip."} },
-
-  { id:46, loc:"Brisbane", dates:["2026-08-06","2026-08-08"], nights:2, country:"Australia",
-    tz:10,    lat:-27.47,lng:153.03, signal:"good", icon:"🌇",
-    insight:"Queensland's capital — South Bank cultural precinct, Streets Beach (man-made beach in the city centre), and excellent craft breweries. Lone Pine Koala Sanctuary lets you hold a koala. Relaxed, sunny transit city.",
-    parentTip:"Safe, modern, well-connected. Two nights is about right. Australia Post can ship excess luggage home if they've accumulated too much.",
-    leg:{mode:"flight",from:"Whitsundays / Proserpine",to:"Brisbane",detail:"Likely flight south after sailing."},
-    confirm:"The source itinerary grouped Brisbane and Sydney together as '5 nights'. This app assumes a 2+3 split." },
-
-  { id:47, loc:"Sydney", dates:["2026-08-08","2026-08-11"], nights:3, country:"Australia",
-    tz:10,    lat:-33.87,lng:151.21, signal:"good", icon:"🏗️",
-    insight:"The grand finale — Opera House, Harbour Bridge, Bondi Beach, and the Bondi to Coogee coastal walk. Newtown and Surry Hills for food and nightlife. The Rocks markets under the bridge on weekends. After four months, Sydney will feel simultaneously familiar and extraordinary.",
-    parentTip:"It will be winter (August) — around 8-18°C. They'll need warm clothes they probably don't have. Three nights to see the highlights and pack for home. The trip of a lifetime is nearly over — they'll come back different people.",
-    leg:{mode:"flight",from:"Brisbane",to:"Sydney",detail:"Easy domestic flight or train. Clean final act before home."},
-    confirm:"Night allocation inferred from the combined Brisbane/Sydney block in the source itinerary." },
+  { id:46, loc:"Canggu", dates:["2026-07-18","2026-07-23"], nights:5, country:"Indonesia",
+    tz:8,    lat:-8.65,lng:115.14, signal:"good", icon:"🏄",
+    insight:"Canggu is Bali's social surf-and-cafe base: beach clubs, rice-field lanes, açai bowls, co-working spaces, Tanah Lot sunsets nearby, and enough familiarity to unpack properly at the end of the route.",
+    parentTip:"Five nights in one place at the end is reassuring. Good WiFi, pharmacies, Western food if they need a reset, and plenty of easy beach time before the trip wraps on 23 July.",
+    leg:{mode:"taxi",from:"Uluwatu Beach",to:"Canggu",detail:"Short Bali transfer into the final beach base."} },
 ];
 
 const COUNTRIES = [
   {name:"Thailand",flag:"🇹🇭",c:"#E85D3A"}, {name:"Laos",flag:"🇱🇦",c:"#2D9B83"},
   {name:"Vietnam",flag:"🇻🇳",c:"#D4A843"}, {name:"Cambodia",flag:"🇰🇭",c:"#8B5CF6"},
   {name:"Malaysia",flag:"🇲🇾",c:"#3B82F6"}, {name:"Singapore",flag:"🇸🇬",c:"#EC4899"},
-  {name:"Indonesia",flag:"🇮🇩",c:"#F97316"}, {name:"Australia",flag:"🇦🇺",c:"#10B981"},
+  {name:"Indonesia",flag:"🇮🇩",c:"#F97316"},
+];
+
+const TRIP_START = STOPS[0].dates[0];
+const TRIP_END = STOPS[STOPS.length - 1].dates[1];
+const FINAL_DESTINATION = STOPS[STOPS.length - 1].loc;
+
+const TRAVEL_PHOTOS = [
+  { id:"departure-gatwick", stopId:1, src:"/travel-photos/departure-gatwick.jpg", date:"2026-04-05", country:"Transit", place:"Gatwick", title:"Ready for the off", caption:"The first suitcase-photo moment before the long road east.", focus:"center" },
+  { id:"phuket-longtail", stopId:2, src:"/travel-photos/phuket-longtail.jpg", date:"2026-04-08", country:"Thailand", place:"Phuket waters", title:"Longtail boat day", caption:"Turquoise water, limestone cliffs, and the first proper island postcard.", focus:"center" },
+  { id:"krabi-temple-night", stopId:4, src:"/travel-photos/krabi-temple-night.jpg", date:"2026-04-15", country:"Thailand", place:"Krabi", title:"Temple lights", caption:"A golden evening from the Thailand chapter.", focus:"center" },
+  { id:"bangkok-neon", stopId:6, src:"/travel-photos/bangkok-neon.jpg", date:"2026-04-21", country:"Thailand", place:"Bangkok", title:"Bangkok after dark", caption:"Neon signs, traffic, heat, and that big-city travel buzz.", focus:"center" },
+  { id:"northern-thailand-elephant", stopId:8, src:"/travel-photos/northern-thailand-elephant.jpg", date:"2026-04-26", country:"Thailand", place:"Northern Thailand", title:"Elephant sanctuary", caption:"One of those days that will probably still be talked about years later.", focus:"center" },
+  { id:"elephant-sanctuary-selfie", stopId:8, src:"/travel-photos/elephant-sanctuary-selfie.jpg", date:"2026-04-26", country:"Thailand", place:"Northern Thailand", title:"Sanctuary smiles", caption:"Friends, dust, sunshine and a very memorable backdrop.", focus:"center" },
+  { id:"northern-thailand-canyon", stopId:9, src:"/travel-photos/northern-thailand-canyon.jpg", date:"2026-04-27", country:"Thailand", place:"Northern Thailand", title:"Canyon evening", caption:"A sent-photo timestamp places this near the northern Thailand stretch.", focus:"center" },
+  { id:"vang-vieng-viewpoint-selfie", stopId:13, src:"/travel-photos/vang-vieng-viewpoint-selfie.jpg", date:"2026-05-04", country:"Laos", place:"Vang Vieng", title:"Karst country", caption:"The Laos chapter opening up into limestone hills and big skies.", focus:"center" },
+  { id:"vang-vieng-viewpoint", stopId:13, src:"/travel-photos/vang-vieng-viewpoint.jpg", date:"2026-05-04", country:"Laos", place:"Vang Vieng", title:"Viewpoint pause", caption:"A high, hazy view from the first Vang Vieng pass through Laos.", focus:"center" },
+  { id:"white-temple-portrait", stopId:9, src:"/travel-photos/white-temple-portrait.jpg", date:"2026-05-08", country:"Thailand", place:"Likely Chiang Rai", title:"White temple", caption:"The visual clue is stronger than the sent date here, so this is kept as a likely place match.", focus:"center" },
+  { id:"ha-giang-pass-wide", stopId:16, src:"/travel-photos/ha-giang-pass-wide.jpg", date:"2026-05-13", country:"Vietnam", place:"Ha Giang", title:"Mountain roads", caption:"The dramatic northern Vietnam views everyone worries about and everyone remembers.", focus:"center" },
+  { id:"ha-giang-flag-road", stopId:16, src:"/travel-photos/ha-giang-flag-road.jpg", date:"2026-05-14", country:"Vietnam", place:"Ha Giang", title:"The pass", caption:"Hairpin roads, steep green valleys, and proper adventure energy.", focus:"center" },
+  { id:"ha-giang-friends", stopId:16, src:"/travel-photos/ha-giang-friends.jpg", date:"2026-05-14", country:"Vietnam", place:"Ha Giang", title:"Road-trip proof", caption:"The reassuring version of the motorbike chapter: helmets off, smiles on.", focus:"center" },
+  { id:"ha-giang-valley", stopId:16, src:"/travel-photos/ha-giang-valley.jpg", date:"2026-05-15", country:"Vietnam", place:"Ha Giang", title:"Valley sweep", caption:"A wide-open northern Vietnam view from the mountain section.", focus:"center" },
+  { id:"hoi-an-lantern-friends", stopId:23, src:"/travel-photos/hoi-an-lantern-friends.jpg", date:"2026-06-01", country:"Vietnam", place:"Likely Hoi An", title:"Lantern night", caption:"Shared later, but visually this belongs with the Hoi An lantern chapter.", focus:"center" },
+  { id:"hoi-an-lantern-street", stopId:23, src:"/travel-photos/hoi-an-lantern-street.jpg", date:"2026-06-01", country:"Vietnam", place:"Likely Hoi An", title:"Lantern market", caption:"Colour, bustle and the glow people imagine when they picture Hoi An.", focus:"center" },
+  { id:"hoi-an-lantern-tree", stopId:23, src:"/travel-photos/hoi-an-lantern-tree.jpg", date:"2026-06-01", country:"Vietnam", place:"Likely Hoi An", title:"Lantern canopy", caption:"A softer lantern shot for the middle of the Vietnam story.", focus:"center" },
+  { id:"vang-vieng-paramotor", stopId:31, src:"/travel-photos/vang-vieng-paramotor.jpg", date:"2026-06-15", country:"Laos", place:"Vang Vieng", title:"Up over Vang Vieng", caption:"The newest chapter: harnessed in, airborne, and apparently having a wonderful time.", focus:"center" },
+  { id:"vang-vieng-paraglider", stopId:31, src:"/travel-photos/vang-vieng-paraglider.jpg", date:"2026-06-15", country:"Laos", place:"Vang Vieng", title:"Big sky day", caption:"A tiny glider against huge Laos scenery.", focus:"center" },
+  { id:"vang-vieng-karst-balloon", stopId:31, src:"/travel-photos/vang-vieng-karst-balloon.jpg", date:"2026-06-15", country:"Laos", place:"Vang Vieng", title:"Karst from above", caption:"Green ridges, blue sky, and the sort of photo that earns the worried-parent refresh.", focus:"center" },
 ];
 
 const LEG_ICONS = {flight:"✈️",ferry:"⛴️",bus:"🚌",mixed:"🔀",cruise:"⛵",trek:"🥾",taxi:"🚕",train:"🚂"};
@@ -345,7 +366,7 @@ export default function App() {
   const ref = useRef(null);
 
   const eff = demo ? pD(demoD) : today;
-  const ts = pD("2026-04-05"), te = pD("2026-08-11");
+  const ts = pD(TRIP_START), te = pD(TRIP_END);
   const td = dB(ts,te), tripDay = Math.max(0,dB(ts,eff)+1);
   const prog = Math.min(100,Math.max(0,(tripDay/td)*100));
   const before = eff<ts, after = eff>=te;
@@ -369,6 +390,21 @@ export default function App() {
 
   const lows = STOPS.filter(s=>s.signal==="poor");
   const confirms = STOPS.filter(s=>s.confirm);
+  const longest = STOPS
+    .filter(s=>s.country!=="Transit")
+    .reduce((best,s)=>s.nights>best.nights?s:best,{nights:0,loc:""});
+  const photosByStop = useMemo(()=>{
+    const map = new Map();
+    TRAVEL_PHOTOS.forEach(photo=>{
+      if(!map.has(photo.stopId)) map.set(photo.stopId, []);
+      map.get(photo.stopId).push(photo);
+    });
+    return map;
+  },[]);
+  const sortedPhotos = [...TRAVEL_PHOTOS].sort((a,b)=>pD(a.date)-pD(b.date));
+  const latestPhoto = sortedPhotos.filter(photo=>pD(photo.date)<=eff).at(-1) || sortedPhotos[0];
+  const currentPhotos = cur ? (photosByStop.get(cur.id) || []) : [];
+  const heroPhoto = currentPhotos[0] || latestPhoto;
 
   useEffect(()=>{
     if(ref.current&&tab==="timeline") setTimeout(()=>ref.current?.scrollIntoView({behavior:"smooth",block:"center"}),300);
@@ -379,18 +415,21 @@ export default function App() {
   // ── Shared styles ─────────────────────────────────────────────────────────
   const card = {background:"white",border:"1px solid #E5E5E5",borderRadius:16,padding:"14px 16px",marginBottom:8};
   const pill = (bg,col,bor) => ({display:"inline-flex",alignItems:"center",gap:4,background:bg,color:col,border:`1px solid ${bor}`,borderRadius:20,padding:"3px 10px",fontSize:14,fontWeight:700});
+  const heroBackground = heroPhoto
+    ? `linear-gradient(135deg, rgba(17,30,43,0.88) 0%, rgba(27,40,56,0.72) 48%, rgba(58,90,110,0.55) 100%), url("${heroPhoto.src}")`
+    : "linear-gradient(135deg,#1B2838 0%,#2D4156 50%,#3A5A6E 100%)";
 
   return (
     <div style={{minHeight:"100vh",background:"#FAF7F2",fontFamily:"'Segoe UI','SF Pro Display',system-ui,sans-serif",color:"#1a1a1a",paddingBottom:20}}>
 
       {/* ── HERO ────────────────────────────────────────────────────────────── */}
-      <div style={{background:"linear-gradient(135deg,#1B2838 0%,#2D4156 50%,#3A5A6E 100%)",color:"white",padding:"28px 20px 24px",borderRadius:"0 0 28px 28px",boxShadow:"0 8px 32px rgba(0,0,0,0.15)",position:"relative",overflow:"hidden"}}>
+      <div style={{background:heroBackground,backgroundSize:"cover",backgroundPosition:heroPhoto?.focus || "center",color:"white",padding:"28px 20px 24px",borderRadius:"0 0 28px 28px",boxShadow:"0 8px 32px rgba(0,0,0,0.15)",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E\")"}} />
         <div style={{position:"relative",zIndex:1}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:14}}>
             <div>
               <h1 style={{fontSize:28,fontWeight:800,margin:0,letterSpacing:"-0.5px"}}>Pippa, Abi, Lily & Lucy</h1>
-              <p style={{fontSize:16,opacity:0.6,margin:"3px 0 0"}}>SE Asia & Australia · Apr–Aug 2026</p>
+              <p style={{fontSize:16,opacity:0.6,margin:"3px 0 0"}}>SE Asia · Apr–Jul 2026</p>
             </div>
             <div style={{background:before?"rgba(255,255,255,0.15)":after?"rgba(16,185,129,0.3)":"rgba(239,68,68,0.25)",padding:"4px 12px",borderRadius:20,fontSize:13,fontWeight:700,letterSpacing:"0.5px",border:"1px solid rgba(255,255,255,0.15)"}}>
               {before?"DEPARTING SOON":after?"TRIP COMPLETE ✓":"● LIVE"}
@@ -445,12 +484,23 @@ export default function App() {
             <div style={{background:"rgba(16,185,129,0.15)",borderRadius:16,padding:"16px",textAlign:"center"}}>
               <div style={{fontSize:34}}>🏠</div>
               <div style={{fontSize:18,fontWeight:600,marginTop:6}}>Journey Complete</div>
-              <div style={{fontSize:14,opacity:0.6}}>{td} days · 8 countries · Lifetime of memories</div>
+              <div style={{fontSize:14,opacity:0.6}}>{td} days · {cProg.length} countries · Lifetime of memories</div>
+            </div>
+          )}
+
+          {heroPhoto && (
+            <div style={{marginTop:10,display:"flex",gap:10,alignItems:"center",background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.16)",borderRadius:14,padding:"8px 10px",backdropFilter:"blur(6px)"}}>
+              <img src={heroPhoto.src} alt={heroPhoto.title} style={{width:58,height:58,borderRadius:10,objectFit:"cover",border:"1px solid rgba(255,255,255,0.2)",flex:"0 0 auto"}} />
+              <div style={{minWidth:0,flex:1}}>
+                <div style={{fontSize:11,textTransform:"uppercase",letterSpacing:"1px",opacity:0.62,fontWeight:800}}>Latest postcard</div>
+                <div style={{fontSize:15,fontWeight:800,lineHeight:1.2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{heroPhoto.title}</div>
+                <div style={{fontSize:12,opacity:0.68,marginTop:2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{heroPhoto.place} · {fD(heroPhoto.date)}</div>
+              </div>
             </div>
           )}
 
           <div style={{marginTop:14}}>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:12,opacity:0.45,marginBottom:3}}><span>Gatwick</span><span>Sydney</span></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:12,opacity:0.45,marginBottom:3}}><span>Gatwick</span><span>{FINAL_DESTINATION}</span></div>
             <div style={{height:4,background:"rgba(255,255,255,0.12)",borderRadius:2,overflow:"hidden"}}>
               <div style={{height:"100%",width:`${prog}%`,background:"linear-gradient(90deg,#E85D3A,#D4A843,#2D9B83,#F97316,#10B981)",borderRadius:2,transition:"width 0.5s"}} />
             </div>
@@ -465,7 +515,7 @@ export default function App() {
             <input type="checkbox" checked={demo} onChange={e=>setDemo(e.target.checked)} style={{width:18,height:18}} />
             ⏰ Time Travel
           </label>
-          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min="2026-04-01" max="2026-08-15" style={{border:"1.5px solid #D1D5DB",borderRadius:12,padding:"10px 14px",fontSize:16}} />}
+          {demo && <input type="date" value={demoD} onChange={e=>setDemoD(e.target.value)} min={TRIP_START} max={TRIP_END} style={{border:"1.5px solid #D1D5DB",borderRadius:12,padding:"10px 14px",fontSize:16}} />}
           <div style={{flex:1,minWidth:160,position:"relative"}}>
             <span style={{position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",fontSize:20,opacity:0.4}}>🔍</span>
             <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search stops, countries..." style={{width:"100%",border:"1.5px solid #E5E5E5",borderRadius:12,padding:"10px 14px 10px 38px",fontSize:16,background:"white",boxSizing:"border-box"}} />
@@ -484,9 +534,9 @@ export default function App() {
       </div>
 
       {/* ── TABS ───────────────────────────────────────────────────────────── */}
-      <div style={{padding:"12px 16px 0",display:"flex",gap:8}}>
-        {[["timeline","📋 Timeline"],["legs","🚀 Legs"],["map","🗺️ Route"],["stats","📊 Stats"]].map(([v,l])=>(
-          <button key={v} onClick={()=>setTab(v)} style={{flex:1,padding:"12px 0",borderRadius:12,fontSize:16,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1.5px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
+      <div style={{padding:"12px 16px 2px",display:"flex",gap:8,overflowX:"auto"}}>
+        {[["timeline","📋 Timeline"],["postcards","📸 Postcards"],["legs","🚀 Legs"],["map","🗺️ Route"],["stats","📊 Stats"]].map(([v,l])=>(
+          <button key={v} onClick={()=>{setTab(v); if(v!=="timeline") window.scrollTo({top:0,behavior:"smooth"});}} style={{minWidth:116,padding:"12px 0",borderRadius:12,fontSize:16,fontWeight:700,cursor:"pointer",background:tab===v?"#1B2838":"white",color:tab===v?"white":"#6B7280",border:tab===v?"none":"1.5px solid #E5E5E5",transition:"all 0.2s"}}>{l}</button>
         ))}
       </div>
 
@@ -500,6 +550,7 @@ export default function App() {
             const isExp=sel===s.id;
             const col=gc(s.country);
             const showH = i===0 || s.country!==filtered[i-1]?.country;
+            const stopPhotos = photosByStop.get(s.id) || [];
 
             return (
               <div key={s.id}>
@@ -537,6 +588,17 @@ export default function App() {
                     <span style={{fontSize:20,transform:isExp?"rotate(90deg)":"none",transition:"transform 0.2s",color:"#aaa"}}>›</span>
                   </div>
 
+                  {stopPhotos.length>0 && (
+                    <div style={{display:"flex",gap:8,overflowX:"auto",marginTop:10,paddingBottom:2}}>
+                      {stopPhotos.slice(0,4).map(photo=>(
+                        <div key={photo.id} style={{minWidth:92,maxWidth:92}}>
+                          <img src={photo.src} alt={photo.title} loading="lazy" style={{width:92,height:68,borderRadius:10,objectFit:"cover",display:"block"}} />
+                          <div style={{fontSize:11,color:"#6B7280",fontWeight:700,marginTop:4,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{photo.title}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {isExp && (
                     <div style={{marginTop:14,borderTop:"1px solid #E8E8E8",paddingTop:14}} onClick={e=>e.stopPropagation()}>
                       {/* Insight */}
@@ -559,7 +621,7 @@ export default function App() {
                         </div>
                         <div style={{textAlign:"right"}}>
                           <div style={{fontSize:15,fontWeight:600,color:"#333"}}>{s.tz - 1}hrs ahead of UK</div>
-                          <div style={{fontSize:13,color:"#666"}}>(UK is on BST Apr–Aug)</div>
+                          <div style={{fontSize:13,color:"#666"}}>(UK is on BST Apr–Jul)</div>
                         </div>
                       </div>
 
@@ -599,6 +661,44 @@ export default function App() {
               </div>
             );
           })}
+        </div>
+      )}
+
+      {/* ── POSTCARDS ──────────────────────────────────────────────────────── */}
+      {tab==="postcards" && (
+        <div style={{padding:"14px 16px"}}>
+          {heroPhoto && (
+            <div style={{...card,padding:0,overflow:"hidden",borderRadius:18,boxShadow:"0 12px 28px rgba(27,40,56,0.12)"}}>
+              <div style={{position:"relative",minHeight:280,backgroundImage:`linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.72)),url("${heroPhoto.src}")`,backgroundSize:"cover",backgroundPosition:heroPhoto.focus || "center",display:"flex",alignItems:"flex-end"}}>
+                <div style={{padding:"20px",color:"white",width:"100%"}}>
+                  <div style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.16)",border:"1px solid rgba(255,255,255,0.22)",borderRadius:999,padding:"5px 10px",fontSize:12,fontWeight:800,letterSpacing:"0.7px",textTransform:"uppercase",marginBottom:10}}>📸 Featured now</div>
+                  <div style={{fontSize:26,fontWeight:900,lineHeight:1.05}}>{heroPhoto.title}</div>
+                  <div style={{fontSize:14,opacity:0.78,marginTop:6}}>{heroPhoto.place} · {fD(heroPhoto.date)}</div>
+                  <p style={{fontSize:15,lineHeight:1.45,margin:"10px 0 0",maxWidth:520,opacity:0.92}}>{heroPhoto.caption}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10,marginTop:12}}>
+            {TRAVEL_PHOTOS.map(photo=>{
+              const linkedStop = STOPS.find(s=>s.id===photo.stopId);
+              const col = gc(photo.country);
+              return (
+                <div key={photo.id} style={{background:"white",border:"1px solid #E5E5E5",borderRadius:14,overflow:"hidden",boxShadow:"0 6px 18px rgba(27,40,56,0.06)"}}>
+                  <img src={photo.src} alt={photo.title} loading="lazy" style={{width:"100%",aspectRatio:"4 / 5",objectFit:"cover",display:"block",background:"#E5E7EB"}} />
+                  <div style={{padding:"10px 10px 12px"}}>
+                    <div style={{fontSize:14,fontWeight:850,lineHeight:1.2,color:"#1B2838"}}>{photo.title}</div>
+                    <div style={{fontSize:12,color:"#6B7280",fontWeight:650,marginTop:4}}>{photo.place} · {fD(photo.date)}</div>
+                    <div style={{display:"flex",alignItems:"center",gap:6,marginTop:8}}>
+                      <span style={{width:8,height:8,borderRadius:4,background:col,display:"inline-block"}} />
+                      <span style={{fontSize:11,color:"#888",fontWeight:700,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{linkedStop?.loc || photo.country}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -683,7 +783,6 @@ export default function App() {
                 <text x="80" y="155" fontSize={6/zoom} fill="#8B5CF6" fontWeight="700" opacity="0.4">CAMBODIA</text>
                 <text x="55" y="225" fontSize={6/zoom} fill="#3B82F6" fontWeight="700" opacity="0.4">MALAYSIA</text>
                 <text x="175" y="245" fontSize={6/zoom} fill="#F97316" fontWeight="700" opacity="0.4">INDONESIA</text>
-                <text x="310" y="305" fontSize={7/zoom} fill="#10B981" fontWeight="700" opacity="0.4">AUSTRALIA</text>
               </svg>
             </div>
             {zoom>1 && <p style={{fontSize:13,color:"#888",textAlign:"center",marginTop:8}}>Drag to pan · Zoom: {Math.round(zoom*100)}%</p>}
@@ -695,10 +794,10 @@ export default function App() {
             <p style={{fontSize:14,color:"#888",margin:"0 0 10px 4px"}}>Assessment of the plan's structure — not related to map colours above.</p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
               {[
-                {bg:"#F8FAFC",bc:"#475569",tc:"#1E293B",icon:"✅",h:"Strength",t:"Mixes classic highlights with smart pauses — Luang Prabang, Lombok, Canggu. That lowers burnout risk."},
-                {bg:"#FFFBEB",bc:"#B45309",tc:"#78350F",icon:"⚡",h:"Pressure point",t:"Northern and central Vietnam run quite fast. Tiredness may show between Ha Giang and Hoi An."},
-                {bg:"#EEF2FF",bc:"#6366F1",tc:"#312E81",icon:"💙",h:"Most reassuring",t:"Longer stays in Lombok (7n) and Canggu (8n) show they're pacing themselves for the second half."},
-                {bg:"#FFF1F2",bc:"#E11D48",tc:"#881337",icon:"😰",h:"Most anxious",t:"Ha Giang motorbikes, party islands, Nusa Penida cliffs and Rinjani — the quartet requiring the calmest judgment."},
+                {bg:"#F8FAFC",bc:"#475569",tc:"#1E293B",icon:"✅",h:"Strength",t:"The new last leg still has good pauses: Koh Tao, Gili Trawangan, Ubud and a five-night Canggu landing pad."},
+                {bg:"#FFFBEB",bc:"#B45309",tc:"#78350F",icon:"⚡",h:"Pressure point",t:"Two travel nights are implied: Bangkok to Koh Samui and Koh Tao to George Town. Expect slower replies around those moves."},
+                {bg:"#EEF2FF",bc:"#6366F1",tc:"#312E81",icon:"💙",h:"Most reassuring",t:"The route finishes with shorter Bali hops and five nights in Canggu, which should reduce end-of-trip fatigue."},
+                {bg:"#FFF1F2",bc:"#E11D48",tc:"#881337",icon:"😰",h:"Most anxious",t:"Island ferries, the overnight train, party-island choices and Bali scooter traffic are the practical watch-points now."},
               ].map((x,i)=>(
                 <div key={i} style={{background:x.bg,borderRadius:12,padding:"12px 14px",borderLeft:`3px solid ${x.bc}`}}>
                   <div style={{fontSize:14,fontWeight:700,color:x.bc,marginBottom:6}}>{x.icon} {x.h}</div>
@@ -716,9 +815,9 @@ export default function App() {
           {/* Quick stats */}
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:16}}>
             {[
-              {l:"Total Days",v:td,i:"📅"},{l:"Countries",v:"8",i:"🌏"},
+              {l:"Total Days",v:td,i:"📅"},{l:"Countries",v:cProg.length,i:"🌏"},
               {l:"Stops",v:STOPS.length,i:"📍"},{l:"Day of Trip",v:before?"—":after?"Done!":tripDay,i:"⏱️"},
-              {l:"Longest Stay",v:"8 nights",i:"🏖️",sub:"Canggu/Seminyak"},{l:"Low Signal",v:lows.length+" stops",i:"📵"},
+              {l:"Longest Stay",v:`${longest.nights} nights`,i:"🏖️",sub:longest.loc},{l:"Low Signal",v:lows.length+" stops",i:"📵"},
             ].map((x,i)=>(
               <div key={i} style={{...card,textAlign:"center",padding:"14px 12px"}}>
                 <div style={{fontSize:26,marginBottom:4}}>{x.i}</div>

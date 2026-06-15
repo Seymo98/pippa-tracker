@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Local raw source photos; curated deploy-ready copies live in public/travel-photos
+photos/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
