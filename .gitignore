@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.netlify/
 
 # Local raw source photos; curated deploy-ready copies live in public/travel-photos
 photos/
