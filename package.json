@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "npm run lint && npm run build",
+    "deploy:preview": "npm run check && npx netlify-cli deploy --site 1c2e4465-5142-49a4-b348-6cac39eea40f --dir=dist --no-build",
+    "deploy:prod": "npm run check && npx netlify-cli deploy --prod --site 1c2e4465-5142-49a4-b348-6cac39eea40f --dir=dist --no-build"
   },
   "dependencies": {
     "react": "^19.2.4",

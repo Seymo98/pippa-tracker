@@ -360,6 +360,7 @@ export default function App() {
   },[]);
   const [sel, setSel] = useState(null);
   const [tab, setTab] = useState("timeline");
+  const [expandedPhoto, setExpandedPhoto] = useState(null);
   const [demo, setDemo] = useState(false);
   const [demoD, setDemoD] = useState("2026-04-10");
   const [search, setSearch] = useState("");
@@ -368,6 +369,20 @@ export default function App() {
   const [dragging, setDragging] = useState(false);
   const [dragStart, setDragStart] = useState({x:0,y:0});
   const ref = useRef(null);
+
+  useEffect(()=>{
+    if(!expandedPhoto) return;
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = e => {
+      if(e.key==="Escape") setExpandedPhoto(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return ()=>{
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  },[expandedPhoto]);
 
   const eff = demo ? pD(demoD) : today;
   const ts = pD(TRIP_START), te = pD(TRIP_END);
@@ -493,14 +508,14 @@ export default function App() {
           )}
 
           {heroPhoto && (
-            <div style={{marginTop:10,display:"flex",gap:10,alignItems:"center",background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.16)",borderRadius:14,padding:"8px 10px",backdropFilter:"blur(6px)"}}>
+            <button type="button" aria-label={`Expand ${heroPhoto.title}`} onClick={()=>setExpandedPhoto(heroPhoto)} style={{marginTop:10,display:"flex",gap:10,alignItems:"center",background:"rgba(255,255,255,0.12)",border:"1px solid rgba(255,255,255,0.16)",borderRadius:14,padding:"8px 10px",backdropFilter:"blur(6px)",width:"100%",textAlign:"left",font:"inherit",color:"white",cursor:"zoom-in"}}>
               <img src={heroPhoto.src} alt={heroPhoto.title} style={{width:58,height:58,borderRadius:10,objectFit:"cover",border:"1px solid rgba(255,255,255,0.2)",flex:"0 0 auto"}} />
               <div style={{minWidth:0,flex:1}}>
                 <div style={{fontSize:11,textTransform:"uppercase",letterSpacing:"1px",opacity:0.62,fontWeight:800}}>Latest postcard</div>
                 <div style={{fontSize:15,fontWeight:800,lineHeight:1.2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{heroPhoto.title}</div>
                 <div style={{fontSize:12,opacity:0.68,marginTop:2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{heroPhoto.place} · {fD(heroPhoto.date)}</div>
               </div>
-            </div>
+            </button>
           )}
 
           <div style={{marginTop:14}}>
@@ -595,10 +610,10 @@ export default function App() {
                   {stopPhotos.length>0 && (
                     <div style={{display:"flex",gap:8,overflowX:"auto",marginTop:10,paddingBottom:2}}>
                       {stopPhotos.slice(0,4).map(photo=>(
-                        <div key={photo.id} style={{minWidth:92,maxWidth:92}}>
+                        <button key={photo.id} type="button" aria-label={`Expand ${photo.title}`} onClick={e=>{e.stopPropagation(); setExpandedPhoto(photo);}} style={{minWidth:92,maxWidth:92,padding:0,border:"none",background:"transparent",textAlign:"left",font:"inherit",color:"inherit",cursor:"zoom-in"}}>
                           <img src={photo.src} alt={photo.title} loading="lazy" style={{width:92,height:68,borderRadius:10,objectFit:"cover",display:"block"}} />
                           <div style={{fontSize:11,color:"#6B7280",fontWeight:700,marginTop:4,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{photo.title}</div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   )}
@@ -672,7 +687,7 @@ export default function App() {
       {tab==="postcards" && (
         <div style={{padding:"14px 16px"}}>
           {heroPhoto && (
-            <div style={{...card,padding:0,overflow:"hidden",borderRadius:18,boxShadow:"0 12px 28px rgba(27,40,56,0.12)"}}>
+            <button type="button" aria-label={`Expand ${heroPhoto.title}`} onClick={()=>setExpandedPhoto(heroPhoto)} style={{...card,padding:0,overflow:"hidden",borderRadius:18,boxShadow:"0 12px 28px rgba(27,40,56,0.12)",display:"block",width:"100%",textAlign:"left",font:"inherit",color:"inherit",cursor:"zoom-in"}}>
               <div style={{position:"relative",minHeight:280,backgroundImage:`linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.72)),url("${heroPhoto.src}")`,backgroundSize:"cover",backgroundPosition:heroPhoto.focus || "center",display:"flex",alignItems:"flex-end"}}>
                 <div style={{padding:"20px",color:"white",width:"100%"}}>
                   <div style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.16)",border:"1px solid rgba(255,255,255,0.22)",borderRadius:999,padding:"5px 10px",fontSize:12,fontWeight:800,letterSpacing:"0.7px",textTransform:"uppercase",marginBottom:10}}>📸 Featured now</div>
@@ -681,7 +696,7 @@ export default function App() {
                   <p style={{fontSize:15,lineHeight:1.45,margin:"10px 0 0",maxWidth:520,opacity:0.92}}>{heroPhoto.caption}</p>
                 </div>
               </div>
-            </div>
+            </button>
           )}
 
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:10,marginTop:12}}>
@@ -689,7 +704,7 @@ export default function App() {
               const linkedStop = STOPS.find(s=>s.id===photo.stopId);
               const col = gc(photo.country);
               return (
-                <div key={photo.id} style={{background:"white",border:"1px solid #E5E5E5",borderRadius:14,overflow:"hidden",boxShadow:"0 6px 18px rgba(27,40,56,0.06)"}}>
+                <button key={photo.id} type="button" aria-label={`Expand ${photo.title}`} onClick={()=>setExpandedPhoto(photo)} style={{background:"white",border:"1px solid #E5E5E5",borderRadius:14,overflow:"hidden",boxShadow:"0 6px 18px rgba(27,40,56,0.06)",padding:0,textAlign:"left",font:"inherit",color:"inherit",cursor:"zoom-in"}}>
                   <img src={photo.src} alt={photo.title} loading="lazy" style={{width:"100%",aspectRatio:"4 / 5",objectFit:"cover",display:"block",background:"#E5E7EB"}} />
                   <div style={{padding:"10px 10px 12px"}}>
                     <div style={{fontSize:14,fontWeight:850,lineHeight:1.2,color:"#1B2838"}}>{photo.title}</div>
@@ -699,7 +714,7 @@ export default function App() {
                       <span style={{fontSize:11,color:"#888",fontWeight:700,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{linkedStop?.loc || photo.country}</span>
                     </div>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
@@ -882,6 +897,20 @@ export default function App() {
                 <div style={{fontSize:17,fontWeight:700}}>{n}</div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {expandedPhoto && (
+        <div role="dialog" aria-modal="true" aria-label={expandedPhoto.title} onClick={()=>setExpandedPhoto(null)} style={{position:"fixed",inset:0,zIndex:100,background:"rgba(5,12,20,0.96)",display:"flex",flexDirection:"column",padding:"max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom))",cursor:"zoom-out"}}>
+          <button type="button" aria-label="Close photo" onClick={e=>{e.stopPropagation(); setExpandedPhoto(null);}} style={{position:"absolute",top:"max(12px, env(safe-area-inset-top))",right:14,zIndex:2,width:42,height:42,borderRadius:21,border:"1px solid rgba(255,255,255,0.22)",background:"rgba(255,255,255,0.14)",color:"white",fontSize:28,lineHeight:1,cursor:"pointer",backdropFilter:"blur(10px)"}}>×</button>
+          <div style={{flex:"1 1 auto",minHeight:0,display:"flex",alignItems:"center",justifyContent:"center",padding:"44px 0 14px"}}>
+            <img src={expandedPhoto.src} alt={expandedPhoto.title} style={{maxWidth:"100%",maxHeight:"100%",width:"auto",height:"auto",objectFit:"contain",borderRadius:14,boxShadow:"0 18px 54px rgba(0,0,0,0.45)",background:"#111827"}} />
+          </div>
+          <div onClick={e=>e.stopPropagation()} style={{color:"white",padding:"10px 4px 2px",maxWidth:720,width:"100%",alignSelf:"center"}}>
+            <div style={{fontSize:12,textTransform:"uppercase",letterSpacing:"1px",opacity:0.58,fontWeight:850}}>{expandedPhoto.place} · {fD(expandedPhoto.date)}</div>
+            <div style={{fontSize:24,fontWeight:900,lineHeight:1.08,marginTop:5}}>{expandedPhoto.title}</div>
+            <p style={{fontSize:15,lineHeight:1.45,margin:"8px 0 0",opacity:0.84}}>{expandedPhoto.caption}</p>
           </div>
         </div>
       )}
