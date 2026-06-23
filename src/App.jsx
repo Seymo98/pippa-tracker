@@ -319,6 +319,9 @@ const TRAVEL_PHOTOS = [
   { id:"luang-prabang-waterfall-swim", stopId:32, src:"/travel-photos/luang-prabang-waterfall-swim.jpg", date:"2026-06-17", country:"Laos", place:"Luang Prabang", title:"Waterfall swim", caption:"Turquoise water and a proper Laos pause with Jess in the crew for this stretch.", focus:"center" },
   { id:"luang-prabang-waterfall-pools", stopId:32, src:"/travel-photos/luang-prabang-waterfall-pools.jpg", date:"2026-06-17", country:"Laos", place:"Luang Prabang", title:"Falls in the forest", caption:"The Luang Prabang waterfall chapter before the route turns back toward Bangkok.", focus:"center" },
   { id:"luang-prabang-to-bangkok-flight", stopId:33, src:"/travel-photos/luang-prabang-to-bangkok-flight.jpg", date:"2026-06-18", country:"Thailand", place:"Luang Prabang to Bangkok", title:"Over Laos to Bangkok", caption:"View from the flight after leaving Laos; landed in Bangkok, found a one-pound dinner, then slept the whole evening.", focus:"center" },
+  { id:"koh-samui-dinner-view", stopId:35, src:"/travel-photos/koh-samui-dinner-view.jpg", date:"2026-06-22", country:"Thailand", place:"Koh Samui", title:"Samui dinner view", caption:"Dinner and drinks with a blue-hour view over Koh Samui before the birthday celebrations begin.", focus:"center" },
+  { id:"koh-samui-lucy-birthday-coffee", stopId:35, src:"/travel-photos/koh-samui-lucy-birthday-coffee.jpg", date:"2026-06-23", country:"Thailand", place:"Koh Samui", title:"Lucy's birthday begins", caption:"Lucy's birthday starts properly in Koh Samui, with the travelling crew gathered under the trees.", focus:"center" },
+  { id:"koh-samui-elephant-coffee-view", stopId:35, src:"/travel-photos/koh-samui-elephant-coffee-view.jpg", date:"2026-06-23", country:"Thailand", place:"Koh Samui", title:"Coffee with an elephant view", caption:"Birthday morning coffee with an actual elephant view; very Koh Samui, very memorable.", focus:"center" },
 ];
 
 const LEG_ICONS = {flight:"✈️",ferry:"⛴️",bus:"🚌",mixed:"🔀",cruise:"⛵",trek:"🥾",taxi:"🚕",train:"🚂"};
@@ -423,7 +426,8 @@ export default function App() {
   const sortedPhotos = [...TRAVEL_PHOTOS].sort((a,b)=>pD(a.date)-pD(b.date));
   const latestPhoto = sortedPhotos.filter(photo=>pD(photo.date)<=eff).at(-1) || sortedPhotos[0];
   const currentPhotos = cur ? (photosByStop.get(cur.id) || []) : [];
-  const heroPhoto = currentPhotos[0] || latestPhoto;
+  const latestCurrentPhoto = [...currentPhotos].sort((a,b)=>pD(a.date)-pD(b.date)).filter(photo=>pD(photo.date)<=eff).at(-1) || currentPhotos[0];
+  const heroPhoto = latestCurrentPhoto || latestPhoto;
 
   useEffect(()=>{
     if(ref.current&&tab==="timeline") setTimeout(()=>ref.current?.scrollIntoView({behavior:"smooth",block:"center"}),300);
