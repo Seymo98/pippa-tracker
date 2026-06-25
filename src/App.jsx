@@ -214,16 +214,16 @@ const STOPS = [
     parentTip:"Koh Samui has an international airport with direct flights. If anything goes wrong, this is one of the easiest places to access medical care or arrange emergency flights.",
     leg:{mode:"mixed",from:"Overnight train",to:"Koh Samui",detail:"Arrive from the southbound train/road leg, then ferry across to Samui."} },
 
-  { id:36, loc:"Koh Phangan", dates:["2026-06-24","2026-06-26"], nights:2, country:"Thailand",
+  { id:36, loc:"Koh Phangan", dates:["2026-06-24","2026-06-25"], nights:1, country:"Thailand",
     tz:7,    lat:9.73,lng:100.01, signal:"moderate", icon:"🎶",
     insight:"Famous worldwide for the Full Moon Party on Haad Rin beach, but the rest of the island is surprisingly peaceful: Bottle Beach, Thong Nai Pan, waterfalls, viewpoints and yoga retreats tucked away from the party strip.",
-    parentTip:"Two nights suggests a focused island stop rather than a long party base. Main risks are the usual party-island basics: shoes on the beach, watch drinks, and do not get casual with scooters.",
+    parentTip:"One night suggests a brief island hop rather than a long party base. Main risks are the usual party-island basics: shoes on the beach, watch drinks, and do not get casual with scooters.",
     leg:{mode:"ferry",from:"Koh Samui",to:"Koh Phangan",detail:"Very easy inter-island ferry, usually around 30-60 minutes."} },
 
-  { id:37, loc:"Koh Tao", dates:["2026-06-26","2026-06-30"], nights:4, country:"Thailand",
+  { id:37, loc:"Koh Tao", dates:["2026-06-25","2026-06-30"], nights:5, country:"Thailand",
     tz:7,    lat:10.10,lng:99.84, signal:"moderate", icon:"🤿",
     insight:"The world's most popular and affordable place to get PADI Open Water scuba certified. Tiny island, clear water, coral reefs, whale sharks if they're lucky, and Sairee Beach as the main social strip.",
-    parentTip:"Four nights is enough for a dive course or a few relaxed snorkel/dive days. Diving is well regulated, but ferry days and scooter temptation are the things to keep in mind.",
+    parentTip:"Five nights gives room for a dive course or a few relaxed snorkel/dive days. Diving is well regulated, but ferry days and scooter temptation are the things to keep in mind.",
     leg:{mode:"ferry",from:"Koh Phangan",to:"Koh Tao",detail:"Short ferry north through the Gulf islands."} },
 
   { id:38, loc:"Thailand → Penang transit", dates:["2026-06-30","2026-07-01"], nights:1, country:"Transit",
@@ -322,6 +322,7 @@ const TRAVEL_PHOTOS = [
   { id:"koh-samui-dinner-view", stopId:35, src:"/travel-photos/koh-samui-dinner-view.jpg", date:"2026-06-22", country:"Thailand", place:"Koh Samui", title:"Samui dinner view", caption:"Dinner and drinks with a blue-hour view over Koh Samui before the birthday celebrations begin.", focus:"center" },
   { id:"koh-samui-lucy-birthday-coffee", stopId:35, src:"/travel-photos/koh-samui-lucy-birthday-coffee.jpg", date:"2026-06-23", country:"Thailand", place:"Koh Samui", title:"Lucy's birthday begins", caption:"Lucy's birthday starts properly in Koh Samui, with the travelling crew gathered under the trees.", focus:"center" },
   { id:"koh-samui-elephant-coffee-view", stopId:35, src:"/travel-photos/koh-samui-elephant-coffee-view.jpg", date:"2026-06-23", country:"Thailand", place:"Koh Samui", title:"Coffee with an elephant view", caption:"Birthday morning coffee with an actual elephant view; very Koh Samui, very memorable.", focus:"center" },
+  { id:"koh-tao-sunset-arrival", stopId:37, src:"/travel-photos/koh-tao-sunset-arrival.jpg", date:"2026-06-25", country:"Thailand", place:"Koh Tao", title:"Arrived on Koh Tao", caption:"Latest check-in from Pippa: on Koh Tao now, with a sunset beach view to prove it.", focus:"center" },
 ];
 
 const LEG_ICONS = {flight:"✈️",ferry:"⛴️",bus:"🚌",mixed:"🔀",cruise:"⛵",trek:"🥾",taxi:"🚕",train:"🚂"};
