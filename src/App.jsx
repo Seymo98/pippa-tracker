@@ -227,10 +227,10 @@ const STOPS = [
     leg:{mode:"ferry",from:"Koh Phangan",to:"Koh Tao",detail:"Short ferry north through the Gulf islands."} },
 
   { id:38, loc:"Thailand → Penang transit", dates:["2026-06-30","2026-07-01"], nights:1, country:"Transit",
-    tz:8,    lat:6.25,lng:100.60, signal:"moderate", icon:"🔀",
-    insight:"The dates imply one travel night between Koh Tao ending on 30 June and George Town beginning on 1 July. This is the long move from the Thai islands toward Penang.",
-    parentTip:"This is the fiddly travel night in the updated route. Expect ferry timing, airport or bus connections, and slower replies while they cross from Thailand into Malaysia.",
-    leg:{mode:"mixed",from:"Koh Tao",to:"George Town",detail:"Ferry plus onward flight, bus or train connection toward Penang."} },
+    tz:8,    lat:6.25,lng:100.60, signal:"moderate", icon:"⛴️",
+    insight:"Actual update from Pippa: an overnight boat from Koh Tao toward Malaysia, apparently closer to a pirate ship than a sleeper cabin, but still part of the long island-to-Penang move.",
+    parentTip:"The boat setup looks very basic, so expect poor sleep, patchy charging and slower replies. It is still a normal backpacker-style transfer night rather than a sign something is wrong.",
+    leg:{mode:"mixed",from:"Koh Tao",to:"George Town",detail:"Overnight boat from Koh Tao, then onward Malaysia/Penang connection."} },
 
   { id:39, loc:"George Town", dates:["2026-07-01","2026-07-03"], nights:2, country:"Malaysia",
     tz:8,    lat:5.41,lng:100.33, signal:"good", icon:"🏮",
@@ -327,6 +327,8 @@ const TRAVEL_PHOTOS = [
   { id:"koh-phangan-full-moon-crew", stopId:36, src:"/travel-photos/koh-phangan-full-moon-crew.jpg", date:"2026-06-24", country:"Thailand", place:"Koh Phangan", title:"Full Moon crew", caption:"The group version of the Full Moon Party update, kept with the Koh Phangan chapter.", focus:"center" },
   { id:"koh-phangan-full-moon-glow", stopId:36, src:"/travel-photos/koh-phangan-full-moon-glow.jpg", date:"2026-06-24", country:"Thailand", place:"Koh Phangan", title:"Beach party glow", caption:"Full Moon Party colour and late-night island energy, shared after the stop.", focus:"center" },
   { id:"koh-tao-sunset-arrival", stopId:37, src:"/travel-photos/koh-tao-sunset-arrival.jpg", date:"2026-06-25", country:"Thailand", place:"Koh Tao", title:"Arrived on Koh Tao", caption:"Latest check-in from Pippa: on Koh Tao now, with a sunset beach view to prove it.", focus:"center" },
+  { id:"thailand-malaysia-overnight-boat-bed", stopId:38, src:"/travel-photos/thailand-malaysia-overnight-boat-bed.jpg", date:"2026-06-30", country:"Transit", place:"Koh Tao to Malaysia", title:"Bed for the night", caption:"The overnight boat setup to Malaysia: Pippa's 'pray for us' pirate-ship transfer.", focus:"center" },
+  { id:"thailand-malaysia-overnight-boat-crew", stopId:38, src:"/travel-photos/thailand-malaysia-overnight-boat-crew.jpg", date:"2026-06-30", country:"Transit", place:"Koh Tao to Malaysia", title:"Pirate ship crew", caption:"Cute photo opportunities despite the overnight boat sleeping arrangements.", focus:"center" },
 ];
 
 const LEG_ICONS = {flight:"✈️",ferry:"⛴️",bus:"🚌",mixed:"🔀",cruise:"⛵",trek:"🥾",taxi:"🚕",train:"🚂"};
